@@ -4,7 +4,7 @@
 #include <string.h>
 #define SIZE 50
 
-//TODO: Postfix operation
+//TODO: Make it work with negative numbers
 
 typedef struct NODE *NODE;
 struct NODE { //The thingy here must be the same as the struct name, the first thingy, declared above.
@@ -45,7 +45,7 @@ int isEmpty (NODE tos) { // I'm not actually using this but whatever, maybe I'll
 }
 
 int main() {
-    int n1, n2, constant, tempNum = 0;
+    int n1, n2, constant, tempNum = 0, isNegative = 0;
     NODE top = malloc(sizeof(NODE)); //No need to typecast but ig we can if we need to
     char equation[SIZE];
     printf("Enter an equation: ");
@@ -62,10 +62,14 @@ int main() {
                     i++; // The i++ is to skip a space; it will break if there are more than two numbers without this
                     break;
                 case '-':
-                    n2 = pop(&top); // n2 is here first because of sub and div
-                    n1 = pop(&top);
-                    push(&top, n1 - n2);
-                    i++;
+                    if (equation[i + 1] == ' ') {
+                        n2 = pop(&top); // n2 is here first because of sub and div
+                        n1 = pop(&top);
+                        push(&top, n1 - n2);
+                        i++;
+                    }
+                    else
+                        isNegative = 1;
                     break;
                 case '*':
                     n2 = pop(&top);
@@ -81,6 +85,10 @@ int main() {
                     break;
                 default:
                     tempNum = tempNum * 10 + equation[i] - 48; // A rolling count to parse multi-digit integers. It's -48 because 0 is character 48.
+                    if (isNegative == 1) {
+                        tempNum *= -1;
+                        isNegative = 0;
+                    }
                     break;
             }
             //printf("%d - TOS\n", top -> num); //This is to check the top of stack

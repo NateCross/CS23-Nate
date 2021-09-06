@@ -62,13 +62,13 @@ int main() {
                     i++; // The i++ is to skip a space; it will break if there are more than two numbers without this
                     break;
                 case '-':
-                    if (equation[i + 1] == ' ') {
+                    if (equation[i + 1] == ' ') { // To check for negative number. Looks at next char if number or space
                         n2 = pop(&top); // n2 is here first because of sub and div
                         n1 = pop(&top);
                         push(&top, n1 - n2);
                         i++;
                     }
-                    else
+                    else // If next char is a number, it will toggle isNegative and multiply end result by -1
                         isNegative = 1;
                     break;
                 case '*':

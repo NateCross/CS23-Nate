@@ -51,8 +51,8 @@ int main() {
     printf("Enter an equation: ");
     gets(equation);
 
-    for (int i = 0; i <= strlen(equation) - 1; i++) { // Possible todo: Clean this up and make it a function
-        if (equation [i] != ' ') {
+    for (int i = 0; i < strlen(equation); i++) { // Possible todo: Clean this up and make it a function
+        if (equation [i] != ' ') { // Not actually needed; redundant with switch
 
             switch (equation[i]) { // This is to check which operation the character is, or if it is a number.
                 case '+':
@@ -101,6 +101,7 @@ int main() {
 
     int testAgain = peek(top);
     printf("\nFinal Answer: %d", testAgain);
+    getch();
 
     return 0;
 }

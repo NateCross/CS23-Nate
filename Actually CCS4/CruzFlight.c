@@ -120,7 +120,7 @@ void airportOperation() {
           printf("\r\tWait Timer: %d   ", i);
           sleep(1);
         }
-        //sleep(waitTimer * 60); // The sleep is at the end to display the queues first
+        //sleep(waitTimer); // The sleep is at the end to display the queues first
 
         printf("\n\n\tClearing runway...\n");
         sleep(5);
@@ -128,7 +128,7 @@ void airportOperation() {
 }
 
 int main() {
-    srand(time(NULL)); // Initialize the random number generator every startup
+    srand(time(0)); // Initialize the random number generator every startup
 
     airportOperation();
 

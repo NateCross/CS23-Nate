@@ -19,6 +19,7 @@ variable. Finally it should display the value of this third variable.
 */
 
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 class Time {
@@ -30,8 +31,6 @@ class Time {
         Time(int h, int m, int s);
         void show();
         void AddTime(Time t1, Time t2);
-        //Time operator+(const Time& t);
-
 };
 
 Time::Time() {
@@ -39,23 +38,25 @@ Time::Time() {
 }
 
 Time::Time(int h, int m, int s) {
-    if (h >= 0 && h <= 12)
+    if (h >= 0 && h <= 23)
         hours = h;
     else
         hours = 0;
 
-    if (m >= 0 && m <= 60)
+    if (m >= 0 && m <= 59)
         minutes = m;
     else
         minutes = 0;
 
-    if (s >= 0 && s <= 60)
+    if (s >= 0 && s <= 59)
         seconds = s;
     else
         seconds = 0;
 }
 
 void Time::show() {
+    if (hours < 10)
+        cout << "0";
     cout << hours << ":";
 
     if (minutes < 10)
@@ -72,24 +73,23 @@ void Time::AddTime(Time t1, Time t2) {
     minutes = t1.minutes + t2.minutes;
     seconds = t1.seconds + t2.seconds;
 
-    if (seconds >= 60) {
+    if (seconds > 59) {
         seconds -= 60;
         minutes++;
     }
-    if (minutes >= 60) {
+    if (minutes > 59) {
         minutes -= 60;
         hours++;
     }
-    if (hours >= 12)
-        hours -= 12;
+    if (hours > 23)
+        hours -= 24;
 
     return;
 }
 
 
-
 int main() {
-    Time test1, test2(0, 19, 41), test3(12, 40, 19), test4;
+    Time test1(0, 19, 51), test2(23, 40, 10), test3;
     cout << "Time 1: ";
     test1.show();
     cout << "Time 2: ";
@@ -97,8 +97,13 @@ int main() {
     cout << "Time 3: ";
     test3.show();
 
-    test4.AddTime(test2, test3);
-    cout << "Time 2 + Time 3: ";
-    test4.show();
+    cout << endl;
+
+    test3.AddTime(test1, test2);
+    cout << "Time 1 + Time 2: ";
+    test3.show();
+
+    cout << "Press any key to continue." << endl;
+    getch();
     return 0;
 }

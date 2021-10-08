@@ -12,28 +12,24 @@ struct node {
 void addNode(Node *tree, int input) {
     Node newNode = malloc(sizeof(BinarySearch));
     newNode->data = input;
-    newNode->left = NULL;
-    newNode->right = NULL;
+    newNode->left = newNode->right = NULL;
     //printf("%d\n", newNode->data);
 
-    Node temp = *tree, temp2 = temp;
+    Node temp = *tree, marker = *tree;
 
     if (temp == NULL)
         *tree = newNode;
 
     else {
-        while (temp2 != NULL) {
-            if (temp2->data >= input) {
-                temp = temp2;
-                temp2 = temp2->left;
-            }
-            else {
-                temp = temp2;
-                temp2 = temp2->right;
-            }
+        while (marker != NULL) {
+            temp = marker;
+            if (marker->data >= input)
+                marker = marker->left;
+            else
+                marker = marker->right;
         }
-        //if (temp2 == NULL)
-            //printf("temp2 is null\n");
+        //if (marker == NULL)
+            //printf("marker is null\n");
         //printf("temp: %d\tinput: %d\n", temp->data, input);
 
         if (temp->data >= input)
@@ -75,10 +71,10 @@ void printTree(Node tree) {
 }
 
 void reverseTree(Node *tree) {
+    Node temp = *tree;
+
     if (temp == NULL)
         return;
-
-    Node temp = *tree;
 
     if (temp->left != NULL)
         reverseTree(&temp->left);

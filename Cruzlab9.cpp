@@ -8,7 +8,7 @@ using namespace std;
 class Storage {
     public:
         Storage();
-        Storage(int bi, int by);
+        Storage(int by, int bi);
 
         friend Storage operator+(const Storage &file1, const Storage &file2);
         friend Storage operator+=(Storage &file1, const Storage &file2);
@@ -19,7 +19,7 @@ class Storage {
         friend bool operator>(const Storage &file1, const Storage &file2);
 
     private:
-        int bits_, bytes_;
+        int bytes_, bits_;
 };
 
 Storage::Storage() {
@@ -95,7 +95,6 @@ int main() {
     bool merge1_is_greater = merge1 > merge2;
     cout << "Merge 1 > Merge 2 = " << merge1_is_greater << endl;
 
-
-
+    return 0;
 }
 

@@ -22,7 +22,7 @@ void addNode(Node *tree, int input) {
         *tree = newNode;
 
     else {
-        while (marker != NULL) {
+        while (marker != NULL) {    // USE PARENT/CHILD NOMENCLATURE
             temp = marker;
             if (marker->data >= input)
                 marker = marker->left;
@@ -62,16 +62,10 @@ void printTree(Node tree)
 {
     if (tree != NULL)
     {
-        printTree( tree->left );
+        printTree(tree->left);
         printf("%d ", tree->data);
         printTree(tree->right);
     }
-    /*
-    printf("%d ", tree->data);
-
-    if (tree->right != NULL)
-        printTree(tree->right);
-    */
 }
 
 void reverseTree(Node *tree) {

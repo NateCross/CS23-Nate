@@ -9,7 +9,7 @@ b) A 2-argument constructor to initialize the values of feet and inches to the v
 from the calling function at the time of creation of an object of type Distance.
 c) AddDistance function to add two distances: Feet and inches of both objects should add
 in their corresponding members. 12 inches constitute one foot. Make sure that the
-result of addition doesn’t violate this rule.
+result of addition doesn't violate this rule.
 d) isGreater: should return a variable of type bool to indicate whether 1st distance is greater than 2nd or not.
 e) isSmaller: should return a variable of type bool to indicate whether 1st distance is smaller than 2nd or not.
 f) isGreaterEqual: should return a variable of type bool to indicate whether 1st distance is greater than or equal to 2nd or not.

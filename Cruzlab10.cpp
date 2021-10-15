@@ -120,38 +120,24 @@ int main() {
     cin >> inchesInput;
     Distance dist2(feetInput, inchesInput);
 
-    bool dist1_is_greater = dist1 > dist2;
-    bool dist1_is_lesser = dist1 < dist2;
-    bool dist1_is_greater_or_equal = dist1 >= dist2;
-    bool dist1_is_lesser_or_equal = dist1 <= dist2;
-    bool dist1_is_equal = dist1 == dist2;
-    bool dist1_is_not_equal = dist1 != dist2;
-
-    cout << "Distance 1 > Distance 2: " << dist1_is_greater << endl;
-    cout << "Distance 1 < Distance 2: " << dist1_is_lesser << endl;
-    cout << "Distance 1 >= Distance 2: " << dist1_is_greater_or_equal << endl;
-    cout << "Distance 1 <= Distance 2: " << dist1_is_lesser_or_equal << endl;
-    cout << "Distance 1 == Distance 2: " << dist1_is_equal << endl;
-    cout << "Distance 1 != Distance 2: " << dist1_is_not_equal << endl << endl;
+    cout << "Distance 1 > Distance 2: " << (dist1 > dist2) << endl;
+    cout << "Distance 1 < Distance 2: " << (dist1 < dist2) << endl;
+    cout << "Distance 1 >= Distance 2: " << (dist1 >= dist2) << endl;
+    cout << "Distance 1 <= Distance 2: " << (dist1 <= dist2) << endl;
+    cout << "Distance 1 == Distance 2: " << (dist1 == dist2) << endl;
+    cout << "Distance 1 != Distance 2: " << (dist1 != dist2) << endl << endl;
 
     cout << "Distance 3 = Distance 1 + Distance 2" << endl;
     cout << "Distance 1 += Distance 2" << endl << endl;
     Distance dist3 = dist1 + dist2;
     dist1 += dist2;
 
-    dist1_is_greater = dist1 > dist3;
-    dist1_is_lesser = dist1 < dist3;
-    dist1_is_greater_or_equal = dist1 >= dist3;
-    dist1_is_lesser_or_equal = dist1 <= dist3;
-    dist1_is_equal = dist1 == dist3;
-    dist1_is_not_equal = dist1 != dist3;
-
-    cout << "Distance 1 > Distance 3: " << dist1_is_greater << endl;
-    cout << "Distance 1 < Distance 3: " << dist1_is_lesser << endl;
-    cout << "Distance 1 >= Distance 3: " << dist1_is_greater_or_equal << endl;
-    cout << "Distance 1 <= Distance 3: " << dist1_is_lesser_or_equal << endl;
-    cout << "Distance 1 == Distance 3: " << dist1_is_equal << endl;
-    cout << "Distance 1 != Distance 3: " << dist1_is_not_equal << endl << endl;
+    cout << "Distance 1 > Distance 3: " << (dist1 > dist3) << endl;
+    cout << "Distance 1 < Distance 3: " << (dist1 < dist3) << endl;
+    cout << "Distance 1 >= Distance 3: " << (dist1 >= dist3) << endl;
+    cout << "Distance 1 <= Distance 3: " << (dist1 <= dist3) << endl;
+    cout << "Distance 1 == Distance 3: " << (dist1 == dist3) << endl;
+    cout << "Distance 1 != Distance 3: " << (dist1 != dist3) << endl << endl;
 
     cout << endl << "Press any key to continue." << endl;
     getch();

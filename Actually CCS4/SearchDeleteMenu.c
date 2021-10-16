@@ -8,6 +8,7 @@ Will clean up sometime.
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <conio.h>
 
 typedef struct {
     char studName[50];
@@ -67,7 +68,7 @@ void insertNode(nd *root) {
     nd ptr = *root, ptr1;
 
     if (*root != NULL) {
-        ptr = *root;
+        // ptr = *root;
         if (searchNode(&ptr, &ptr1, id)) {
             printf("Node exists. Please input a new node.\n");
             printf("Press any key to continue.\n");
@@ -124,9 +125,9 @@ int inputSearchkey() {
 }
 
 bool deleteLeaf(nd *ptr, nd *ptr1, nd *root) {
-    if (*ptr == *root) {
+    if (*ptr == *root) 
         *root = NULL;
-    }
+    
     else {
         if ((*ptr1)->left == *ptr)
             (*ptr1)->left = NULL;
@@ -198,7 +199,6 @@ bool deleteTwoChildren(nd *ptr, nd *ptr1) {
             (*ptr)->right = NULL;
     }
 
-    *ptr1 = NULL;
     free(*ptr1);
 
     return true;
@@ -224,10 +224,17 @@ void deleteProcedure(nd *root) {
             isDeleted = deleteTwoChildren(&ptr, &ptr1);
         else
             isDeleted = deleteOneChild(&ptr, &ptr1, root);
+        
+        printf("Node deleted.\n");
+        printf("Press any key to continue.\n");
+        getch();
     }
-    printf("Node deleted.\n");
-    printf("Press any key to continue.\n");
-    getch();
+    else {
+        printf("Node not found.\n");
+        printf("Press any key to continue.\n");
+        getch();
+    }
+    
     return;
 }
 

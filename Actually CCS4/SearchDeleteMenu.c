@@ -323,6 +323,7 @@ void menu(nd *tree) {
                 break;
             case 4:
                 deleteProcedure(tree);
+                break;
             case 0:
                 break;
             default:
@@ -335,6 +336,7 @@ void menu(nd *tree) {
 
 int main() {
     nd nice = NULL;
+    menu(&nice);
     /*
     insertNode(&nice, 2, "pee");
     insertNode(&nice, 3, "poo");
@@ -347,7 +349,7 @@ int main() {
     insertNode(&nice, 6, "c");
     insertNode(&nice, 7, "d");
     */
-    menu(&nice);
+
 
     /*
     printf("Student ID: %d\n", nice->student.studID);

@@ -9,17 +9,18 @@ Will clean up sometime.
 #include <string.h>
 #include <stdbool.h>
 #include <conio.h>
+#include "searchDeleteheadertest.h"
 
-typedef struct {
-    char studName[50];
-    int studID;
-} STUD;
+// typedef struct {
+//     char studName[50];
+//     int studID;
+// } STUD;
 
-typedef struct node *nd;
-struct node {
-    nd left, right;
-    STUD student;
-} NODE;
+// typedef struct node *nd;
+// struct node {
+//     nd left, right;
+//     STUD student;
+// } NODE;
 
 void createNode(int *id, char *name) {
     int tempID;
@@ -38,27 +39,40 @@ void createNode(int *id, char *name) {
 }
 
 bool searchNode(nd *ptr, nd *ptr1, int key) {
-    if ((*ptr)->student.studID == key)
-        return true;
+    // if ((*ptr)->student.studID == key)
+    //     return true;
 
-    while ((*ptr)->student.studID != key) {
+    // while ((*ptr)->student.studID != key) {
+    //     *ptr1 = *ptr;
+    //     if (*ptr == NULL)
+    //         return false;
+    //     if (key <= (*ptr)->student.studID)
+    //         *ptr = (*ptr)->left;
+    //     else
+    //         *ptr = (*ptr)->right;
+
+        
+    // }
+    while (*ptr != NULL) {
+        if ((*ptr)->student.studID == key)
+            return true;
+
         *ptr1 = *ptr;
-        if (key <= (*ptr)->student.studID)
+
+        if (key < (*ptr)->student.studID)
             *ptr = (*ptr)->left;
         else
             *ptr = (*ptr)->right;
-
-        if (*ptr == NULL)
-            return false;
     }
     //printf("%d\n", ptr->student.studID);
-    return true;  // Must catch error if NULL is returned.
+    return false;  // Must catch error if NULL is returned.
 }
 
 void insertNode(nd *root) {
     int id;
     char name[50];
     createNode(&id, name);
+
     nd temp = malloc(sizeof(NODE));
     temp->student.studID = id;
     strcpy(temp->student.studName, name);
@@ -94,6 +108,8 @@ void insertNode(nd *root) {
 
     return;
 }
+
+// void insertAltNode(nd *root)
 
 
 /*

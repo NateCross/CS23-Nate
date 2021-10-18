@@ -12,45 +12,10 @@ End Date:
 #include <string.h>
 #include <stdbool.h>
 #include <conio.h>
+#include "CruzBSTshared.h"
 #include "CruzBSTitem.h"
-
-// typedef struct {
-//     char number[4];
-//     char name[40];
-// } CUSTOMER;
-
-// TODO
-// typedef struct {
-    
-// } SALES;
-
-// typedef struct node_customer *ndCust;
-// struct node_customer {
-//     CUSTOMER cust;
-//     ndCust left;
-//     ndCust right;
-// } TREE_CUSTOMER;
-
-// typedef struct node
-
-//DONE inputSearchKey - for deletion
-//searchItem, return the node, also when using sales, for subtracting qty
-//createItem, create struct item
-//insertItem
-//deleteItemProcedure
-//deleteItemLeaf
-//deleteItemOneChild
-//deleteItemTwoChildren
-//printItem - for deletion
-
-//createCustomer - input all the fields
-//insertCustomer
-
-//createSale
-//insertSale
-
-//displayAllItems
-
+#include "CruzBSTcustomer.h"
+#include "CruzBSTsales.h"
 
 char menu() {
     char input;
@@ -70,71 +35,66 @@ char menu() {
     return input;
 }
 
-void inputSearchKey(char *search) {
-    printf("Input entry number: ");
-    gets(search);
-    fflush(stdin);
-    return;
-}
+
 
 void storeOperation() {
     ndItem listItem = NULL;
-    // ndCust listCust;
+    ndCust listCust = NULL;
+    ndSale listSales = NULL;
     char choice;
     char key[4];
     ITEM itemToAdd;
-    // CUSTOMER custToAdd
-    // SALES saleToAdd
+    CUSTOMER custToAdd;
+    SALES saleToAdd;
 
     do {
         choice = menu();
 
         switch (choice) {
             case '1':
-                itemToAdd = createItem();
-                insertItem(&listItem, itemToAdd);
+                if (createItem(&itemToAdd))
+                    insertItem(&listItem, itemToAdd);
                 break;
             case '2':
-                //  = createCustomer();
-                // insertCustomer(&listCust, custToAdd);
+                if (createCustomer(&custToAdd))
+                    insertCustomer(&listCust, custToAdd);
                 break;
             case '3':
-                inputSearchKey(key);
-                // deleteItemProcedure(&listItem, key);
+                if (inputSearchKey(key))
+                    deleteItemProcedure(&listItem, key);
                 break;
             case '4':
-                //  = createSales();
-                // insertSale(&listSale, saleToAdd);
+                if (createSale(&saleToAdd))
+                    insertSale(&listSales, saleToAdd, &listItem);
+                break;
+            case '5':
+                initializeDisplayAllItems(listItem);
+                break;
+            case '6':
+                break;
+            case '7': // TODO: DELETE AFTER
+                system("cls");
+                displayAllCustomers(listCust);
+                getch();
+                break;
+            case '8': // TODO: DELETE AFTER
+                system("cls");
+                displayAllSales(listSales);
+                getch();
+                break;
+            default:
+                printf("Error: Invalid input.\n");
+                printf("Press any key to continue.\n");
+                getch();
                 break;
         }
-
     } while (choice != '6');
 
 }
 
-void displayAllItems(ndItem tree) {
-    ndItem ptr = tree;
-    if (ptr != NULL) {
-        displayAllItems(ptr->left);
-        // TODO: insert print here
-        displayAllItems(ptr->right);
-    }
-}
 
 int main() {
-    // ndItem test;
-    // test = malloc(sizeof(TREE_ITEM));
-    // strcpy(test->item.number, "69");
-    // printf("%s\n", test->item.number);
-
-    // ndCust test1;
-    // test1 = malloc(sizeof(TREE_CUSTOMER));
-    // strcpy(test1->cust.number, "21");
-    // printf("%s\n", test1->cust.number);
-    
     storeOperation();
-    
-
     return 0;
 }
 

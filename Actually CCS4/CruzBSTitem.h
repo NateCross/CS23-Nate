@@ -50,7 +50,11 @@ bool createItem(ITEM *temp) {
     return true;
 }
 
-void insertItem(ndItem *root, ITEM itemToAdd) {
+void insertItem(ndItem *root) {
+    ITEM itemToAdd;
+    if (!createItem(&itemToAdd))
+        return;
+
     ndItem temp = malloc(sizeof(TREE_ITEM));
     temp->item = itemToAdd;
     temp->left = NULL;
@@ -63,11 +67,12 @@ void insertItem(ndItem *root, ITEM itemToAdd) {
         while (ptr != NULL) {
             ptr1 = ptr;
             comparison = numberComparison(temp->item.number, ptr->item.number);
-            if (comparison < 0) // Less than
+
+            if (comparison < 0) 
                 ptr = ptr->left;
-            else if (comparison > 0) // Greater than
+            else if (comparison > 0)
                 ptr = ptr->right;
-            else { // Equal
+            else {
                 printf("Error: Number already exists.\n");
                 printf("Press any key to return.\n");
                 getch();
@@ -88,22 +93,15 @@ void insertItem(ndItem *root, ITEM itemToAdd) {
     return;
 }
 
-void displaySingleItem(ndItem node) {
-    printf("Item Number: %s\n", node->item.number);
-    printf("Quantity: %d\n", node->item.quantity);
-    printf("Price: %.2f\n", node->item.price);
-    printf("Name: %s\n", node->item.name);
-}
-
 // Prints all items in the tree,
 // in item number order from least to greatest.
-// It is formatted to resemble a table, with enough space
-// to allow for larger values.
+// It is formatted to resemble a table, with 
+// enough space to allow for larger values.
 void displayAllItems(ndItem tree) {
     if (tree != NULL) {
         displayAllItems(tree->left);
         
-        printf("%-6s", tree->item.number);
+        printf("#%-5s", tree->item.number);
         printf("\t");
         printf("%-8d", tree->item.quantity);
         printf("\t");
@@ -117,8 +115,6 @@ void displayAllItems(ndItem tree) {
     return;
 }
 
-// This function does some preliminary formatting
-// before calling the recursive print function.
 void initializeDisplayAllItems(ndItem tree) {
     system("cls");
 
@@ -162,7 +158,7 @@ bool inputSearchKey(char *search) {
     return true;
 }
 
-bool searchDeleteItem(ndItem *ptr, ndItem *ptr1, char *key) {
+bool searchItem(ndItem *ptr, ndItem *ptr1, char *key) {
     int comparison;
     while (*ptr != NULL) {
         comparison = numberComparison(key, (*ptr)->item.number);
@@ -175,6 +171,13 @@ bool searchDeleteItem(ndItem *ptr, ndItem *ptr1, char *key) {
             *ptr = (*ptr)->right;
     }
     return false;
+}
+
+void displaySingleItem(ndItem node) {
+    printf("Item Number: #%s\n", node->item.number);
+    printf("Quantity: %d\n", node->item.quantity);
+    printf("Price: %.2f\n", node->item.price);
+    printf("Name: %s\n", node->item.name);
 }
 
 bool checkDeletion(ndItem node) {
@@ -239,10 +242,11 @@ bool deleteItemOneChild(ndItem *ptr, ndItem *ptr1, ndItem *root) {
 bool deleteItemTwoChildren(ndItem *ptr, ndItem *ptr1) {
     ndItem ptr2 = NULL;
     *ptr1 = (*ptr)->right;
+
     while ((*ptr1)->left != NULL) { 
         ptr2 = *ptr1;
         *ptr1 = (*ptr1)->left;
-    } // Traversal to find in order successor
+    } // Traversal to find inorder successor
 
     (*ptr)->item = (*ptr1)->item;
 
@@ -258,11 +262,12 @@ bool deleteItemTwoChildren(ndItem *ptr, ndItem *ptr1) {
         else
             (*ptr)->right = NULL;
     }
+    
     free(*ptr1);
     return true;
 }
 
-void deleteItemProcedure(ndItem *root, char *key) {
+void deleteItemProcedure(ndItem *root) {
     system("cls");
     if (*root == NULL) {
         printf("Error: No items in list.\n");
@@ -271,10 +276,14 @@ void deleteItemProcedure(ndItem *root, char *key) {
         return;
     }
 
+    char key[ITEM_NUMBER];
+    if (!inputSearchKey(key))
+        return;
+
     ndItem ptr = *root, ptr1;
     bool isDeleted;
 
-    if (searchDeleteItem(&ptr, &ptr1, key)) {
+    if (searchItem(&ptr, &ptr1, key)) {
         if (checkDeletion(ptr)) {
             if (ptr->left == NULL && ptr->right == NULL)
                 isDeleted = deleteItemLeaf(&ptr, &ptr1, root);

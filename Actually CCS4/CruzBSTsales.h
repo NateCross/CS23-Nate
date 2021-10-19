@@ -7,7 +7,7 @@ typedef struct {
     int quantitySold;
     char itemNumber[ITEM_NUMBER];
     char custNumber[CUSTOMER_NUMBER];
-    char saleNumber[SALES_NUMBER];
+    char number[SALES_NUMBER];
 } SALES;
 
 typedef struct node_sales *ndSale;
@@ -42,12 +42,15 @@ bool createSale(SALES *temp) {
     scanf("%d", &temp->quantitySold);
     fflush(stdin);
 
-    strcpy(temp->saleNumber, temp->itemNumber);
-    strcat(temp->saleNumber, temp->custNumber);
+    // Because number is empty, must strcpy first
+    strcpy(temp->number, temp->itemNumber);
+    strcat(temp->number, temp->custNumber);
+
+    return true;
 }
 
 bool checkSaleValidity(SALES saleToCheck, ndItem *ptr, ndItem *ptr1) {
-    if (!(searchDeleteItem(ptr, ptr1, saleToCheck.itemNumber))) {
+    if (!(searchItem(ptr, ptr1, saleToCheck.itemNumber))) {
         printf("Error: Item number does not exist.\n");
         printf("Press any key to return.\n");
         getch();
@@ -68,10 +71,13 @@ bool checkSaleValidity(SALES saleToCheck, ndItem *ptr, ndItem *ptr1) {
     return true;
 }
 
-void insertSale(ndSale *root, SALES saleToAdd, ndItem *itemList) {
-    ndItem itemPtr = *itemList, itemPtr1;
-    bool saleIsValid = checkSaleValidity(saleToAdd, &itemPtr, &itemPtr1);
-    if(!saleIsValid)
+void insertSale(ndSale *root, ndItem *itemRoot) {
+    SALES saleToAdd;
+    if (!createSale(&saleToAdd))
+        return;
+
+    ndItem itemPtr = *itemRoot, itemPtr1;
+    if (!checkSaleValidity(saleToAdd, &itemPtr, &itemPtr1))
         return;
 
     ndSale temp = malloc(sizeof(TREE_SALE));
@@ -85,7 +91,8 @@ void insertSale(ndSale *root, SALES saleToAdd, ndItem *itemList) {
     if (ptr != NULL) {
         while (ptr != NULL) {
             ptr1 = ptr;
-            comparison = numberComparison(temp->sale.saleNumber, ptr->sale.saleNumber);
+            comparison = numberComparison(temp->sale.number, ptr->sale.number);
+            
             if (comparison < 0)
                 ptr = ptr->left;
             else if (comparison > 0)
@@ -111,20 +118,6 @@ void insertSale(ndSale *root, SALES saleToAdd, ndItem *itemList) {
     printf("Press any key to return.\n");
     getch();
     return;
-}
-
-// TODO: DELETE ME
-void displayAllSales(ndSale tree) {
-    if (tree != NULL) {
-        displayAllSales(tree->left);
-
-        printf("Sale Number: %s\n", tree->sale.saleNumber);
-        printf("Quantity Sold: %d\n", tree->sale.quantitySold);
-        printf("Item Number: %s\n", tree->sale.itemNumber);
-        printf("Customer Number: %s\n\n", tree->sale.custNumber);
-
-        displayAllSales(tree->right);
-    }
 }
 
 #endif

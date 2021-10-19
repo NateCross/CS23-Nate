@@ -36,9 +36,14 @@ bool createCustomer(CUSTOMER *temp) {
         getch();
         return false;
     }
+    return true;
 }
 
-void insertCustomer(ndCust *root, CUSTOMER custToAdd) {
+void insertCustomer(ndCust *root) {
+    CUSTOMER custToAdd;
+    if (!createCustomer(&custToAdd))
+        return;
+
     ndCust temp = malloc(sizeof(TREE_CUST));
     temp->cust = custToAdd;
     temp->left = NULL;
@@ -51,6 +56,7 @@ void insertCustomer(ndCust *root, CUSTOMER custToAdd) {
         while (ptr != NULL) {
             ptr1 = ptr;
             comparison = numberComparison(temp->cust.number, ptr->cust.number);
+            
             if (comparison < 0)
                 ptr = ptr->left;
             else if (comparison > 0)
@@ -74,18 +80,6 @@ void insertCustomer(ndCust *root, CUSTOMER custToAdd) {
     printf("Press any key to return.\n");
     getch();
     return;
-}
-
-// TODO: DELETE ME
-void displayAllCustomers(ndCust tree) {
-    if (tree != NULL) {
-        displayAllCustomers(tree->left);
-
-        printf("Customer Number: %s\n", tree->cust.number);
-        printf("Customer Name: %s\n\n", tree->cust.name);
-
-        displayAllCustomers(tree->right);
-    }
 }
 
 #endif

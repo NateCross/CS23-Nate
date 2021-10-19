@@ -1,17 +1,21 @@
-/*
-Nathan Angelo B. Cruz
+// This program models a simple store inventory system implemented through a
+// Binary Search Tree (BST). This data structure allows for efficient sorting
+// and retrieval of data.
+// It is designed to track item inventory, customers, and sales. 
+// These sets of data have their own BST, 
+// and in each tree they are arranged by their respective number.
 
-This program models a store inventory system implemented through a
-Binary Search Tree.
+// Author: Nathan Angelo B. Cruz
 
-Start Date: 2021/10/17
-End Date: 
-*/
+// Started: 2021/10/17
+// Finished: 2021/10/19
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <conio.h>
+
 #include "CruzBSTshared.h"
 #include "CruzBSTitem.h"
 #include "CruzBSTcustomer.h"
@@ -35,52 +39,32 @@ char menu() {
     return input;
 }
 
-
-
 void storeOperation() {
     ndItem listItem = NULL;
     ndCust listCust = NULL;
     ndSale listSales = NULL;
     char choice;
-    char key[4];
-    ITEM itemToAdd;
-    CUSTOMER custToAdd;
-    SALES saleToAdd;
 
     do {
         choice = menu();
 
         switch (choice) {
             case '1':
-                if (createItem(&itemToAdd))
-                    insertItem(&listItem, itemToAdd);
+                insertItem(&listItem);
                 break;
             case '2':
-                if (createCustomer(&custToAdd))
-                    insertCustomer(&listCust, custToAdd);
+                insertCustomer(&listCust);
                 break;
             case '3':
-                if (inputSearchKey(key))
-                    deleteItemProcedure(&listItem, key);
+                deleteItemProcedure(&listItem);
                 break;
             case '4':
-                if (createSale(&saleToAdd))
-                    insertSale(&listSales, saleToAdd, &listItem);
+                insertSale(&listSales, &listItem);
                 break;
             case '5':
                 initializeDisplayAllItems(listItem);
                 break;
             case '6':
-                break;
-            case '7': // TODO: DELETE AFTER
-                system("cls");
-                displayAllCustomers(listCust);
-                getch();
-                break;
-            case '8': // TODO: DELETE AFTER
-                system("cls");
-                displayAllSales(listSales);
-                getch();
                 break;
             default:
                 printf("Error: Invalid input.\n");
@@ -89,12 +73,14 @@ void storeOperation() {
                 break;
         }
     } while (choice != '6');
-
 }
-
 
 int main() {
     storeOperation();
+
+    printf("\nExiting program...\n");
+    printf("Press any key to end.\n");
+    getch();
     return 0;
 }
 

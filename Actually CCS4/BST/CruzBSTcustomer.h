@@ -17,22 +17,22 @@ struct node_customer {
 } TREE_CUST;
 
 bool createCustomer(CUSTOMER *temp) {
-    printf("Enter customer number: ");
+    printf("\tEnter customer number: ");
     gets(temp->number);
     fflush(stdin);
     if (strlen(temp->number) >= CUSTOMER_NUMBER) {
-        printf("Error: Too many characters in number.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Too many characters in number.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
 
-    printf("Enter customer name: ");
+    printf("\tEnter customer name: ");
     gets(temp->name);
     fflush(stdin);
     if (strlen(temp->name) >= CUSTOMER_NAME) {
-        printf("Error: Too many characters in name.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Too many characters in name.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
@@ -62,8 +62,8 @@ void insertCustomer(ndCust *root) {
             else if (comparison > 0)
                 ptr = ptr->right;
             else {
-                printf("Error: Number already exists.\n");
-                printf("Press any key to return.\n");
+                printf("\tError: Number already exists.\n");
+                printf("\tPress any key to return.\n");
                 getch();
                 return;
             }
@@ -76,8 +76,8 @@ void insertCustomer(ndCust *root) {
     else
         *root = temp;
 
-    printf("Customer successfully registered.\n");
-    printf("Press any key to return.\n");
+    printf("\tCustomer successfully registered.\n");
+    printf("\tPress any key to return.\n");
     getch();
     return;
 }

@@ -19,31 +19,31 @@ struct node_item {
 } TREE_ITEM;
 
 bool createItem(ITEM *temp) {
-    printf("Enter item number: ");
+    printf("\tEnter item number: ");
     gets(temp->number);
     fflush(stdin);
     if (strlen(temp->number) >= ITEM_NUMBER) {
-        printf("Error: Too many characters in number.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Too many characters in number.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
 
-    printf("Enter item name: ");
+    printf("\tEnter item name: ");
     gets(temp->name);
     fflush(stdin);
     if (strlen(temp->name) >= ITEM_NAME) {
-        printf("Error: Too many characters in name.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Too many characters in name.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
 
-    printf("Enter item quantity: ");
+    printf("\tEnter item quantity: ");
     scanf("%d", &temp->quantity);
     fflush(stdin);
 
-    printf("Enter item price: ");
+    printf("\tEnter item price: ");
     scanf("%f", &temp->price);
     fflush(stdin);
 
@@ -73,8 +73,8 @@ void insertItem(ndItem *root) {
             else if (comparison > 0)
                 ptr = ptr->right;
             else {
-                printf("Error: Number already exists.\n");
-                printf("Press any key to return.\n");
+                printf("\tError: Number already exists.\n");
+                printf("\tPress any key to return.\n");
                 getch();
                 return;
             }
@@ -87,14 +87,13 @@ void insertItem(ndItem *root) {
     else
         *root = temp;
     
-    printf("Item successfully added.\n");
-    printf("Press any key to return.\n");
+    printf("\tItem successfully added.\n");
+    printf("\tPress any key to return.\n");
     getch();
     return;
 }
 
-// Prints all items in the tree,
-// in item number order from least to greatest.
+// Prints in item number order from least to greatest.
 // It is formatted to resemble a table, with 
 // enough space to allow for larger values.
 void displayAllItems(ndItem tree) {
@@ -119,13 +118,13 @@ void initializeDisplayAllItems(ndItem tree) {
     system("cls");
 
     if (tree == NULL) {
-        printf("Error: No items in list.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: No items in list.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return;
     }
 
-    printf("Item Display\n\n");
+    printf("\tItem Display\n\n");
 
     printf("%-6s", "No.");
     printf("\t");
@@ -145,19 +144,6 @@ void initializeDisplayAllItems(ndItem tree) {
     return;
 }
 
-bool inputSearchKey(char *search) {
-    printf("Input entry number: ");
-    gets(search);
-    fflush(stdin);
-    if (strlen(search) >= ITEM_NUMBER) {
-        printf("Error: Too many characters in number.\n");
-        printf("Press any key to return.\n");
-        getch();
-        return false;
-    }
-    return true;
-}
-
 bool searchItem(ndItem *ptr, ndItem *ptr1, char *key) {
     int comparison;
     while (*ptr != NULL) {
@@ -174,20 +160,21 @@ bool searchItem(ndItem *ptr, ndItem *ptr1, char *key) {
 }
 
 void displaySingleItem(ndItem node) {
-    printf("Item Number: #%s\n", node->item.number);
-    printf("Quantity: %d\n", node->item.quantity);
-    printf("Price: %.2f\n", node->item.price);
-    printf("Name: %s\n", node->item.name);
+    printf("\tItem Number: #%s\n", node->item.number);
+    printf("\tQuantity: %d\n", node->item.quantity);
+    printf("\tPrice: %.2f\n", node->item.price);
+    printf("\tName: %s\n", node->item.name);
 }
 
-bool checkDeletion(ndItem node) {
+bool confirmDeletion(ndItem node) {
     char choice;
 
     displaySingleItem(node);
-    printf("\nDo you wish to continue deletion?\n");
-    printf("1] Yes\n");
-    printf("2] No\n");
+    printf("\n\tDo you wish to continue deletion?\n");
+    printf("\t1] Yes\n");
+    printf("\t2] No\n");
     do {
+        printf("\t");
         scanf("%c", &choice);
         fflush(stdin);
         if (choice == '1')
@@ -195,8 +182,8 @@ bool checkDeletion(ndItem node) {
         else if (choice == '2')
             return false;
         else
-            printf("Error: Incorrect input. Please try again.\n");
-    } while (choice != '1' || choice != '2');
+            printf("\tError: Incorrect input. Please try again.\n");
+    } while (choice != '1' && choice != '2');
 }
 
 bool deleteItemLeaf(ndItem *ptr, ndItem *ptr1, ndItem *root) {
@@ -270,21 +257,27 @@ bool deleteItemTwoChildren(ndItem *ptr, ndItem *ptr1) {
 void deleteItemProcedure(ndItem *root) {
     system("cls");
     if (*root == NULL) {
-        printf("Error: No items in list.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: No items in list.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return;
     }
 
     char key[ITEM_NUMBER];
-    if (!inputSearchKey(key))
+    inputSearchKey(key);
+
+    if (strlen(key) >= ITEM_NUMBER) {
+        printf("\tError: Too many characters in number.\n");
+        printf("\tPress any key to return.\n");
+        getch();
         return;
+    }
 
     ndItem ptr = *root, ptr1;
     bool isDeleted;
 
     if (searchItem(&ptr, &ptr1, key)) {
-        if (checkDeletion(ptr)) {
+        if (confirmDeletion(ptr)) {
             if (ptr->left == NULL && ptr->right == NULL)
                 isDeleted = deleteItemLeaf(&ptr, &ptr1, root);
             else if (ptr->left != NULL && ptr->right != NULL)
@@ -293,17 +286,17 @@ void deleteItemProcedure(ndItem *root) {
                 isDeleted = deleteItemOneChild(&ptr, &ptr1, root);
             
             if (isDeleted)
-                printf("Successfully deleted item.\n");
+                printf("\tSuccessfully deleted item.\n");
             else
-                printf("Failed to delete item.\n");
+                printf("\tFailed to delete item.\n");
         }
         else
             return;
     }
     else
-        printf("Error: Item not found.\n");
+        printf("\tError: Item not found.\n");
         
-    printf("Press any key to return.\n");
+    printf("\tPress any key to return.\n");
     getch();
     return;
 }

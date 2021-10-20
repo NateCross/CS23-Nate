@@ -14,4 +14,11 @@ int numberComparison(char *num1, char *num2) {
         return strcmp(num1, num2);
 }
 
+void inputSearchKey(char *search) {
+    printf("\tInput entry number: ");
+    gets(search);
+    fflush(stdin);
+    return;
+}
+
 #endif

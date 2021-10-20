@@ -101,32 +101,36 @@ bool searchOnly( Node *tree, int value ) {
     return false;
 }
 
-bool searchDelete( Node *tree, int value ) {
-    Node search = *tree, temp = *tree;
-    while (search != NULL) {
-        printf("Search Data: %d\n", search->data);
-        if (search->data == value) {
-            if (temp->data >= value) {
-                temp->right = search->left;
-            }
-            else {
-                temp->left = search->right;
-            }
-            search = NULL;
-            free(search);
+// bool searchDelete( Node *tree, int value ) {
+//     Node search = *tree, temp = *tree;
+//     while (search != NULL) {
+//         printf("Search Data: %d\n", search->data);
+//         if (search->data == value) {
+//             if (temp->data >= value) {
+//                 temp->right = search->left;
+//             }
+//             else {
+//                 temp->left = search->right;
+//             }
+//             search = NULL;
+//             free(search);
 
-            return true;
-        }
+//             return true;
+//         }
 
-        temp = search;
-        if (search->data >= value)
-            search = search->left;
+//         temp = search;
+//         if (search->data >= value)
+//             search = search->left;
 
-        else
-            search = search->right;
+//         else
+//             search = search->right;
 
-    }
-    return false;
+//     }
+//     return false;
+// }
+int countTree(Node tree) {
+    if (tree != NULL)
+        return tree->data + countTree(tree->left) + countTree(tree->right);
 }
 
 
@@ -155,14 +159,13 @@ int main() {
     printTree(test);
 
     // reverseTree(&test);
+    //printf("\n");
+    // printTree(test);
+    //printf("\n\n");
+    //printTree(test);
     printf("\n");
-    printTree(test);
-    printf("\n\n");
-    if (searchDelete(&test, 15))
-        printf("\nFound");
-    else
-        printf("\nNope");
-    printf("\n");
-    printTree(test);
+
+    int treecount = countTree(test);
+    printf("treecount: %d\n", treecount);
 
 }

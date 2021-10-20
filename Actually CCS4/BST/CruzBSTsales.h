@@ -18,27 +18,27 @@ struct node_sales {
 } TREE_SALE;
 
 bool createSale(SALES *temp) {
-    printf("Enter item number: ");
+    printf("\tEnter item number: ");
     gets(temp->itemNumber);
     fflush(stdin);
     if (strlen(temp->itemNumber) >= ITEM_NUMBER) {
-        printf("Error: Too many characters in number.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Too many characters in number.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
 
-    printf("Enter customer number: ");
+    printf("\tEnter customer number: ");
     gets(temp->custNumber);
     fflush(stdin);
     if (strlen(temp->custNumber) >= CUSTOMER_NUMBER) {
-        printf("Error: Too many characters in number.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Too many characters in number.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
 
-    printf("Enter quantity of items to be sold: ");
+    printf("\tEnter quantity of items to be sold: ");
     scanf("%d", &temp->quantitySold);
     fflush(stdin);
 
@@ -51,20 +51,20 @@ bool createSale(SALES *temp) {
 
 bool checkSaleValidity(SALES saleToCheck, ndItem *ptr, ndItem *ptr1) {
     if (!(searchItem(ptr, ptr1, saleToCheck.itemNumber))) {
-        printf("Error: Item number does not exist.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Item number does not exist.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
     if ((*ptr)->item.quantity == 0) {
-        printf("Error: Item is out of stock.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Item is out of stock.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
     if (saleToCheck.quantitySold < 0) {
-        printf("Error: Quantity sold to customer is negative.\n");
-        printf("Press any key to return.\n");
+        printf("\tError: Quantity sold to customer is negative.\n");
+        printf("\tPress any key to return.\n");
         getch();
         return false;
     }
@@ -98,8 +98,8 @@ void insertSale(ndSale *root, ndItem *itemRoot) {
             else if (comparison > 0)
                 ptr = ptr->right;
             else {
-                printf("Error: Number already exists.\n");
-                printf("Press any key to return.\n");
+                printf("\tError: Number already exists.\n");
+                printf("\tPress any key to return.\n");
                 getch();
                 return;
             }
@@ -114,8 +114,8 @@ void insertSale(ndSale *root, ndItem *itemRoot) {
     
     itemPtr->item.quantity -= temp->sale.quantitySold;
 
-    printf("Sale successfully added.\n");
-    printf("Press any key to return.\n");
+    printf("\tSale successfully added.\n");
+    printf("\tPress any key to return.\n");
     getch();
     return;
 }

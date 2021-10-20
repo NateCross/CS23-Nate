@@ -25,14 +25,14 @@ char menu() {
     char input;
 
     system("cls");
-    printf("Cruz Enterprise\n");
-    printf("1] Add New Item\n");
-    printf("2] Add New Customer\n");
-    printf("3] Delete an Item\n");
-    printf("4] Sales\n");
-    printf("5] Display All Items\n");
-    printf("6] Exit\n");
-    printf("Enter choice: ");
+    printf("\tCruz Enterprise\n");
+    printf("\t1] Add New Item\n");
+    printf("\t2] Add New Customer\n");
+    printf("\t3] Delete an Item\n");
+    printf("\t4] Sales\n");
+    printf("\t5] Display All Items\n");
+    printf("\t6] Exit\n");
+    printf("\tEnter choice: ");
     scanf("%c", &input);
     fflush(stdin);
 
@@ -40,9 +40,9 @@ char menu() {
 }
 
 void storeOperation() {
-    ndItem listItem = NULL;
-    ndCust listCust = NULL;
-    ndSale listSales = NULL;
+    ndItem treeItem = NULL;
+    ndCust treeCust = NULL;
+    ndSale treeSale = NULL;
     char choice;
 
     do {
@@ -50,25 +50,25 @@ void storeOperation() {
 
         switch (choice) {
             case '1':
-                insertItem(&listItem);
+                insertItem(&treeItem);
                 break;
             case '2':
-                insertCustomer(&listCust);
+                insertCustomer(&treeCust);
                 break;
             case '3':
-                deleteItemProcedure(&listItem);
+                deleteItemProcedure(&treeItem);
                 break;
             case '4':
-                insertSale(&listSales, &listItem);
+                insertSale(&treeSale, &treeItem);
                 break;
             case '5':
-                initializeDisplayAllItems(listItem);
+                initializeDisplayAllItems(treeItem);
                 break;
             case '6':
                 break;
             default:
-                printf("Error: Invalid input.\n");
-                printf("Press any key to continue.\n");
+                printf("\tError: Invalid input.\n");
+                printf("\tPress any key to continue.\n");
                 getch();
                 break;
         }
@@ -78,8 +78,8 @@ void storeOperation() {
 int main() {
     storeOperation();
 
-    printf("\nExiting program...\n");
-    printf("Press any key to end.\n");
+    printf("\n\tExiting program...\n");
+    printf("\tPress any key to end.\n");
     getch();
     return 0;
 }

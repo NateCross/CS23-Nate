@@ -18,6 +18,8 @@ class Distance {
         bool friend operator==(const Distance &d1, const Distance &d2);
         bool friend operator!=(const Distance &d1, const Distance &d2);
 
+        void friend getDistance(const Distance &d1);
+
     private:
         int feet_, inches_;
 };
@@ -47,7 +49,6 @@ Distance operator+(const Distance &d1, const Distance &d2) {
 
 Distance operator+=(Distance &d1, const Distance &d2) {
     d1 = d1 + d2;
-    return d1;
 }
 
 bool operator>(const Distance &d1, const Distance &d2) {
@@ -92,6 +93,12 @@ bool operator!=(const Distance &d1, const Distance &d2) {
     return !(d1 == d2);
 }
 
+void getDistance(const Distance &d1) {
+    cout << "Feet: " << d1.feet_ << endl;
+    cout << "Inches: " << d1.inches_ << endl;
+    return;
+}
+
 int main() {
     int feetInput, inchesInput;
 
@@ -127,6 +134,8 @@ int main() {
     cout << "Distance 1 <= Distance 3: " << (dist1 <= dist3) << endl;
     cout << "Distance 1 == Distance 3: " << (dist1 == dist3) << endl;
     cout << "Distance 1 != Distance 3: " << (dist1 != dist3) << endl << endl;
+
+    getDistance(dist1);
 
     cout << endl << "Press any key to continue." << endl;
     getch();

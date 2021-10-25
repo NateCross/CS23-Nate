@@ -5,7 +5,7 @@
 #include <conio.h> // getch()
 #include <time.h> // For srand to initialize RNG
 #include <stdbool.h>
-#include <unistd.h> // For sleep
+// #include <unistd.h> // For sleep
 
 #define LANDING_TIME 4
 #define TAKEOFF_TIME 6

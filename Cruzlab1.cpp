@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 // Nate Cruz 2021
@@ -56,5 +57,6 @@ int main() {
     cout << number << " ^ " << exponent << " ";
     cout << "(" << number << " raised to the power " << exponent << ") = " << result << endl;
 
+    getch();
     return 0;
 }

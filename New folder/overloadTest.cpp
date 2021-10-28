@@ -54,6 +54,7 @@ void Box::operator+=(const Box &b1) {
     *this = *this + b1;
 }
 
+
 int main() {
     Box test(1,2,3), test2(4,5,6);
     Box test3 = test + test2;

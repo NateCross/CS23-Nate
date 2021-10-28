@@ -17,6 +17,9 @@ int main() {
     box1.width = 6;
     box1.height = 7;
     cout << box1.getVolume();
-
+    Box test2;
+    test2.length = 6;
+    cout << test2.getVolume();
+    
     return 0;
 }

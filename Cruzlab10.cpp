@@ -10,7 +10,7 @@ class Distance {
         Distance(int ft, int in);
 
         Distance friend operator+(const Distance &d1, const Distance &d2);
-        Distance friend operator+=(Distance &d1, const Distance &d2);
+        void friend operator+=(Distance &d1, const Distance &d2);
         bool friend operator>(const Distance &d1, const Distance &d2);
         bool friend operator<(const Distance &d1, const Distance &d2);
         bool friend operator>=(const Distance &d1, const Distance &d2);
@@ -47,7 +47,7 @@ Distance operator+(const Distance &d1, const Distance &d2) {
     return Distance(d1.feet_ + d2.feet_, d1.inches_ + d2.inches_);
 }
 
-Distance operator+=(Distance &d1, const Distance &d2) {
+void operator+=(Distance &d1, const Distance &d2) {
     d1 = d1 + d2;
 }
 

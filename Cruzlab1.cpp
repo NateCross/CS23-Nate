@@ -37,6 +37,7 @@ int main() {
         cout << "Do you want to power (y/n)? ";
         cin >> choice;
 
+
         if (choice == 'y' || choice == 'Y') {
             cout << "Enter power to be raised: ";
             cin >> exponent;
@@ -57,6 +58,6 @@ int main() {
     cout << number << " ^ " << exponent << " ";
     cout << "(" << number << " raised to the power " << exponent << ") = " << result << endl;
 
-    getch();
+    _getch();
     return 0;
 }

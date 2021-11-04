@@ -1,0 +1,1 @@
+{ "directory": "C:\\Users\\Pc\\Github\\CS23-Nate\\Actually CCS4\\BST", "file": ".\\CruzBST.c", "output": "CruzBST.o", "arguments": ["C:\\Program Files\\LLVM\\bin\\clang.exe", "-xc", ".\\CruzBST.c", "-c", "--target=x86_64-pc-windows-msvc19.28.29336"]},

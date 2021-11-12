@@ -36,32 +36,32 @@ PQUEUE createPQueue(void);
 
 int main(void)
 {
-	bool empty, full;
-	TASK task;
-	PQUEUE H;
-	
-	H = createPQueue();
-	full = isPFull(H.hSize);
-	while(!full)
-	{
-		task = inputTask();
-		insertTask(task,&H);
-		full = isPFull(H.hSize);
-	}
-	displayPriorty_Queue(H);
-	empty = isPEmpty(H.hSize);
-	while(!empty)
-	{
-		task = deleteTask(&H);
-		printf("\n\n\tProcessing Task: %s",task.taskName);
-		sleep(task.duration);
-		empty = isPEmpty(H.hSize);
-	}
+    bool empty, full;
+    TASK task;
+    PQUEUE H;
+
+    H = createPQueue();
+    full = isPFull(H.hSize);
+    while(!full)
+    {
+        task = inputTask();
+        insertTask(task,&H);
+        full = isPFull(H.hSize);
+    }
+    displayPriorty_Queue(H);
+    empty = isPEmpty(H.hSize);
+    while(!empty)
+    {
+        task = deleteTask(&H);
+        printf("\n\n\tProcessing Task: %s",task.taskName);
+        sleep(task.duration);
+        empty = isPEmpty(H.hSize);
+    }
 
     printf("\n\n\tFinished with tasks.\n\tPress any key to exit.");
 
     _getch();
-	return 0;
+    return 0;
 }
 
 void insertTask(TASK task, PQUEUE *H)

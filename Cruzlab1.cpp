@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 #include <conio.h>
 using namespace std;
@@ -22,7 +23,7 @@ double power(double n, int p = 2) {
         for (int i = 0; i >= p; i--)
             result /= n;
     }
-
+    
     return result;
 }
 
@@ -36,7 +37,6 @@ int main() {
     while (true) {
         cout << "Do you want to power (y/n)? ";
         cin >> choice;
-
 
         if (choice == 'y' || choice == 'Y') {
             cout << "Enter power to be raised: ";

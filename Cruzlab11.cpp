@@ -61,6 +61,8 @@ bool operator>(const Storage& s1, const Storage& s2) {
 }
 
 int main() {
+    Storage file4;
+    
     Storage file1(1,1), file2(1,7), file3;
     file3 = file1 + file2;
     file1 += file2;

@@ -1,7 +1,6 @@
 // Nathan Angelo B. Cruz
 
 #include <iostream>
-#include <fstream>
 #include <cstring>
 #include <conio.h>
 using namespace std;
@@ -25,10 +24,9 @@ class Employee {
 class Manager : protected Employee {
     public:
         Manager();
-        Manager(const char *, const int &, const float &, const int &);
+        Manager(const char *, const int&, const float&, const int&);
         void displayEmployee() const;
-        void setEmployee(const char *, const int &, const float &, const int &);
-
+        void setEmployee(const char *, const int&, const float&, const int&);
     protected:
         int _subordinates;
 };
@@ -36,9 +34,9 @@ class Manager : protected Employee {
 class Scientist : protected Employee {
     public:
         Scientist();
-        Scientist(const char *, const int &, const float &, const int &);
+        Scientist(const char *, const int&, const float&, const int&);
         void displayEmployee() const;
-        void setEmployee(const char *, const int &, const float &, const int &);
+        void setEmployee(const char *, const int&, const float&, const int&);
 
     protected:
         int _publications;

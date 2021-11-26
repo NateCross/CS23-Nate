@@ -72,6 +72,7 @@ void heapify(int i, PRIORITY_QUEUE *heap) {
     return;
 }
 
+// THIS ONE IS PREFERRED. RECURSION
 PRIORITY_QUEUE heapifyRecursive(int i, PRIORITY_QUEUE heap) {
     int smaller, left = i * 2, right = i * 2 + 1;
     

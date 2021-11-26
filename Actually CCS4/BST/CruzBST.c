@@ -17,7 +17,7 @@
 #include <conio.h>
 
 #include "CruzBSTshared.h"
-#include "CruzBSTitem.h"
+#include "cruzbstitem.h"
 #include "CruzBSTcustomer.h"
 #include "CruzBSTsales.h"
 

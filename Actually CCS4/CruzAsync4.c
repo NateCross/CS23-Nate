@@ -68,7 +68,7 @@ int main(void)
 
 // In changing this to max, the comparison in the while was flipped
 // from '>' to '<'. But this causes a problem with pQueue index 1,
-// because [i/2] = 0, which is less than task
+// because [i/2] = [0], which is less than task
 // and thus produces unexpected behavior.
 // To avoid this, an exception was placed if i == 1 to make the program
 // behave as normal.

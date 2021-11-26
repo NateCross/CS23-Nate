@@ -5,7 +5,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include <windows.h>
-#include <conio.h>
 
 #define S 10 // size of the task name
 #define P 6 // size of the queue
@@ -20,7 +19,7 @@ typedef struct
 
 typedef struct
 {
-	TASK test[P];
+	TASK pQueue[P];
 	int hSize;
 }PQUEUE;
 
@@ -35,32 +34,28 @@ PQUEUE createPQueue(void);
 
 int main(void)
 {
-    bool empty, full;
-    TASK task;
-    PQUEUE H;
-
-    H = createPQueue();
-    full = isPFull(H.hSize);
-    while(!full)
-    {
-        task = inputTask();
-        insertTask(task,&H);
-        full = isPFull(H.hSize);
-    }
-    displayPriorty_Queue(H);
-    empty = isPEmpty(H.hSize);
-    while(!empty)
-    {
-        task = deleteTask(&H);
-        printf("\n\n\tProcessing Task: %s",task.taskName);
-        sleep(task.duration);
-        empty = isPEmpty(H.hSize);
-    }
-
-    printf("\n\n\tFinished with tasks.\n\tPress any key to exit.");
-
-    _getch();
-    return 0;
+	bool empty, full;
+	TASK task;
+	PQUEUE H;
+	
+	H = createPQueue();
+	full = isPFull(H.hSize);
+	while(!full)
+	{
+		task = inputTask();
+		insertTask(task,&H);
+		full = isPFull(H.hSize);
+	}
+	displayPriorty_Queue(H);
+	empty = isPEmpty(H.hSize);
+	while(!empty)
+	{
+		task = deleteTask(&H);
+		printf("\n\n\tProcessing Task: %s",task.taskName);
+		sleep(task.duration);
+		empty = isPEmpty(H.hSize);
+	}
+	return 0;
 }
 
 void insertTask(TASK task, PQUEUE *H)
@@ -69,18 +64,18 @@ void insertTask(TASK task, PQUEUE *H)
 	
 	H->hSize = H->hSize + 1;
 	i = H->hSize;
-	while(H->test[i/2].duration > task.duration)
+	while(H->pQueue[i/2].duration > task.duration)
 	{
-		H->test[i] = H->test[i/2];
+		H->pQueue[i] = H->pQueue[i/2];
 		i /= 2;
 	}
-	H->test[i] = task;
+	H->pQueue[i] = task;
 }
 
 TASK deleteTask(PQUEUE *H)
 {
-	TASK min = H->test[1];
-	H->test[1] = H->test[H->hSize];
+	TASK min = H->pQueue[1];
+	H->pQueue[1] = H->pQueue[H->hSize];
 	H->hSize = H->hSize - 1;
 	*H = heapify(1, *H);
 	return min;
@@ -93,18 +88,18 @@ PQUEUE heapify(int i, PQUEUE H)
 	l = 2 * i;
 	r = 2 * i + 1;
 	
-	if((l <= H.hSize) && (H.test[l].duration < H.test[i].duration))
+	if((l <= H.hSize) && (H.pQueue[l].duration < H.pQueue[i].duration))
 		smaller = l;
 	else
 		smaller = i;
 	
-	if ((r <= H.hSize) && (H.test[r].duration < H.test[smaller].duration))
+	if ((r <= H.hSize) && (H.pQueue[r].duration < H.pQueue[smaller].duration))
 		smaller = r;
 	if(smaller != i)
 	{
-		temp = H.test[i]; // start of swap
-		H.test[i] = H.test[smaller];
-		H.test[smaller] = temp; // end of swap
+		temp = H.pQueue[i]; // start of swap
+		H.pQueue[i] = H.pQueue[smaller];
+		H.pQueue[smaller] = temp; // end of swap
 		H = heapify(smaller, H);
 	}
 	return H;
@@ -133,12 +128,12 @@ void displayPriorty_Queue(PQUEUE H)
 	
 	for (i = 1; i < P; i++)
 	{
-		printf("\n\n\tTask No: %d",H.test[i].taskNo);
-		printf("\n\tTask Name: %s",H.test[i].taskName);
-		printf("\n\tTask Duration: %d",H.test[i].duration);
+		printf("\n\n\tTask No: %d",H.pQueue[i].taskNo);
+		printf("\n\tTask Name: %s",H.pQueue[i].taskName);
+		printf("\n\tTask Duration: %d",H.pQueue[i].duration);
 		printf("\n\n");
 	}
-	_getch();
+	getch();
 }
 
 TASK inputTask(void)
@@ -162,9 +157,9 @@ PQUEUE createPQueue(void)
 	
 	for(i = 0; i < P; i++)
 	{
-		H.test[i].taskNo = 0;
-		strcpy(H.test[i].taskName,"");
-		H.test[i].duration = 0;
+		H.pQueue[i].taskNo = 0;
+		strcpy(H.pQueue[i].taskName,"");
+		H.pQueue[i].duration = 0;
 	}
 	H.hSize = 0;
 	return H;

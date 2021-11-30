@@ -1,0 +1,1237 @@
+let SessionLoad = 1
+let s:cpo_save=&cpo
+set cpo&vim
+cnoremap <expr> <Plug>(cmp.utils.keymap.evacuate:<S-Tab>) wilder#in_context()  ?  wilder#previous()  :  '<S-Tab>'
+cnoremap <expr> <Plug>(cmp.utils.keymap.evacuate:	) wilder#in_context()  ?  wilder#next()  :  '	'
+cnoremap <expr> <Plug>(cmp.utils.keymap.evacuate:<Down>) wilder#can_reject_completion()  ?  wilder#reject_completion()  :  '<Down>'
+inoremap <silent> <Down> <Cmd>call v:lua.cmp.utils.keymap.set_map(1550948)
+cnoremap <expr> <Plug>(cmp.utils.keymap.evacuate:<Up>) wilder#can_accept_completion()  ?  wilder#accept_completion()  :  '<Up>'
+inoremap <silent> <Up> <Cmd>call v:lua.cmp.utils.keymap.set_map(1550946)
+inoremap <silent> ��R62_AutoPairsReturÞ <Nop>
+inoremap <silent> ��R62_AutoPairsRetuÞ <Nop>
+inoremap <silent> ��R62_AutoPairsRetÞ <Nop>
+inoremap <silent> ��R62_AutoPairsReÞ <Nop>
+inoremap <silent> ��R62_AutoPairsRÞ <Nop>
+inoremap <silent> ��R62_AutoPairsÞ <Nop>
+inoremap <silent> ��R62_AutoPairÞ <Nop>
+inoremap <silent> ��R62_AutoPaiÞ <Nop>
+inoremap <silent> ��R62_AutoPaÞ <Nop>
+inoremap <silent> ��R62_AutoPÞ <Nop>
+inoremap <silent> ��R62_AutoÞ <Nop>
+inoremap <silent> ��R62_AutÞ <Nop>
+inoremap <silent> ��R62_AuÞ <Nop>
+inoremap <silent> ��R62_AÞ <Nop>
+inoremap <silent> ��R62_Þ <Nop>
+inoremap <silent> ��R62Þ <Nop>
+inoremap <silent> ��R6Þ <Nop>
+inoremap <silent> ��RÞ <Nop>
+inoremap <silent> ��R <Cmd>lua require("which-key").show("��R", {mode = "i", auto = true})
+inoremap <silent> <Plug>NERDCommenterInsert  <BS>:call nerdcommenter#Comment('i', "insert")
+inoremap <silent> <SNR>62_AutoPairsReturn =AutoPairsReturn()
+cnoremap <silent> <Plug>(TelescopeFuzzyCommandSearch) e "lua require('telescope.builtin').command_history { default_text = [=[" . escape(getcmdline(), '"') . "]=] }"
+inoremap <silent> <Plug>(fzf-maps-i) :call fzf#vim#maps('i', 0)
+inoremap <expr> <Plug>(fzf-complete-buffer-line) fzf#vim#complete#buffer_line()
+inoremap <expr> <Plug>(fzf-complete-line) fzf#vim#complete#line()
+inoremap <expr> <Plug>(fzf-complete-file-ag) fzf#vim#complete#path('ag -l -g ""')
+inoremap <expr> <Plug>(fzf-complete-file) fzf#vim#complete#path('dir /s/b/a:-d')
+inoremap <expr> <Plug>(fzf-complete-path) fzf#vim#complete#path('dir /s/b')
+inoremap <expr> <Plug>(fzf-complete-word) fzf#vim#complete#word()
+cnoremap <silent> <Up> <Cmd>call v:lua.cmp.utils.keymap.set_map(1550967)
+cnoremap <silent> <Down> <Cmd>call v:lua.cmp.utils.keymap.set_map(1550968)
+cnoremap <silent> <S-Tab> <Cmd>call v:lua.cmp.utils.keymap.set_map(1550970)
+inoremap <M-k> :m .-2==gi
+inoremap <M-j> :m .+1==gi
+inoremap <Plug>(TaboutBackMulti) <Cmd>lua require("tabout").taboutBackMulti()
+inoremap <Plug>(TaboutBack) <Cmd>lua require("tabout").taboutBack()
+inoremap <Plug>(TaboutMulti) <Cmd>lua require("tabout").taboutMulti()
+inoremap <Plug>(Tabout) <Cmd>lua require("tabout").tabout()
+xnoremap <silent>  <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)
+nnoremap <silent>  <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)
+xnoremap <silent>  <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)
+nnoremap <silent>  <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)
+xnoremap <silent>  <Cmd>lua require('neoscroll').scroll(0.10, false, 100)
+nnoremap <silent>  <Cmd>lua require('neoscroll').scroll(0.10, false, 100)
+xnoremap <silent>  <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)
+nnoremap <silent>  <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)
+snoremap <silent> <NL> <Cmd>call v:lua.cmp.utils.keymap.set_map(1550955)
+snoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550962)
+nnoremap <silent>  <Cmd>lua vim.lsp.buf.signature_help()
+nnoremap  <Cmd>nohlsearch|diffupdate
+map  o
+xnoremap <silent>  <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)
+nnoremap <silent>  <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)
+nnoremap <silent> Þ <Nop>
+nnoremap <silent>  <Cmd>lua require("which-key").show("\23", {mode = "n", auto = true})
+xnoremap <silent>  <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)
+nnoremap <silent>  <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)
+nnoremap <silent>  :let @/=""
+xnoremap <silent>  Þ <Nop>
+xnoremap <silent>   <Cmd>lua require("which-key").show(" ", {mode = "v", auto = true})
+nnoremap <silent>  Þ <Nop>
+nnoremap <silent>   <Cmd>lua require("which-key").show(" ", {mode = "n", auto = true})
+nnoremap  p vip
+xnoremap  s :sm/
+nnoremap  s :%sm/
+nnoremap  l l
+nnoremap  k k
+nnoremap  j j
+nnoremap  h h
+noremap    :call quickui#menu#open()
+vnoremap <silent>  a <Cmd>lua require'telescope.builtin'.lsp_range_code_actions{}
+nnoremap <silent>  v <Cmd>lua require'telescope.builtin'.lsp_range_code_actions{}
+nnoremap <silent>  a <Cmd>lua require'telescope.builtin'.lsp_code_actions{}
+nnoremap <silent> !aÞ <Nop>
+nnoremap <silent> !iÞ <Nop>
+nnoremap <silent> !Þ <Nop>
+nnoremap <silent> ! <Cmd>lua require("which-key").show("!", {mode = "n", auto = true})
+nnoremap <silent> " <Cmd>lua require("which-key").show("\"", {mode = "n", auto = true})
+nmap "" <Plug>PeekupOpen
+noremap # #<Cmd>lua require('hlslens').start()
+omap <silent> % <Plug>(MatchitOperationForward)
+xmap <silent> % <Plug>(MatchitVisualForward)
+nmap <silent> % <Plug>(MatchitNormalForward)
+nnoremap <silent> ' <Cmd>lua require("which-key").show("'", {mode = "n", auto = true})
+noremap * *<Cmd>lua require('hlslens').start()
+nnoremap <silent> 1gÞ <Nop>
+nnoremap <silent> 1gD <Cmd>lua vim.lsp.buf.type_definition()
+xnoremap <silent> ;fÞ <Nop>
+xnoremap <silent> ;cÞ <Nop>
+xnoremap <silent> ;Þ <Nop>
+xnoremap <silent> ; <Cmd>lua require("which-key").show(";", {mode = "v", auto = true})
+nnoremap <silent> ;fÞ <Nop>
+nnoremap <silent> ;cÞ <Nop>
+nnoremap <silent> ;tÞ <Nop>
+nnoremap <silent> ;sÞ <Nop>
+nnoremap <silent> ;Þ <Nop>
+nnoremap <silent> ; <Cmd>lua require("which-key").show(";", {mode = "n", auto = true})
+map ;; <Plug>(easymotion-prefix)
+nmap ;ca <Plug>NERDCommenterAltDelims
+xmap ;cu <Plug>NERDCommenterUncomment
+nmap ;cu <Plug>NERDCommenterUncomment
+xmap ;cb <Plug>NERDCommenterAlignBoth
+nmap ;cb <Plug>NERDCommenterAlignBoth
+xmap ;cl <Plug>NERDCommenterAlignLeft
+nmap ;cl <Plug>NERDCommenterAlignLeft
+nmap ;cA <Plug>NERDCommenterAppend
+xmap ;cy <Plug>NERDCommenterYank
+nmap ;cy <Plug>NERDCommenterYank
+xmap ;cs <Plug>NERDCommenterSexy
+nmap ;cs <Plug>NERDCommenterSexy
+xmap ;ci <Plug>NERDCommenterInvert
+nmap ;ci <Plug>NERDCommenterInvert
+nmap ;c$ <Plug>NERDCommenterToEOL
+xmap ;cn <Plug>NERDCommenterNested
+xmap ;cm <Plug>NERDCommenterMinimal
+nmap ;cm <Plug>NERDCommenterMinimal
+xmap ;c  <Plug>NERDCommenterToggle
+nmap ;c  <Plug>NERDCommenterToggle
+xmap ;cc <Plug>NERDCommenterComment
+nmap ;cc <Plug>NERDCommenterComment
+nnoremap ;? :Cheatsheet
+nnoremap <silent> ; i
+noremap <silent> ;fg :cd ~/Github:NvimTreeToggle
+noremap <silent> ;q :cclose
+nnoremap <silent> ;b :Vista!!
+nnoremap ;n :NvimTreeFindFile
+nnoremap ;R :NvimTreeRefresh
+nnoremap ;v :NvimTreeToggle:NvimTreeToggle:NvimTreeToggle
+nnoremap <silent> ;fb :DashboardJumpMark
+nnoremap <silent> ;fa :DashboardFindWord
+nnoremap <silent> ;tc :DashboardChangeColorscheme
+nnoremap <silent> ;ff :DashboardFindFile
+nnoremap <silent> ;fh :DashboardFindHistory
+nnoremap <silent> ;cn :DashboardNewFile
+nmap ;sl :SessionLoad
+nmap ;ss :SessionSave
+nnoremap <silent> <aÞ <Nop>
+nnoremap <silent> <iÞ <Nop>
+nnoremap <silent> <Þ <Nop>
+nnoremap <silent> < <Cmd>lua require("which-key").show("<", {mode = "n", auto = true})
+nnoremap <silent> >Þ <Nop>
+nnoremap <silent> > <Cmd>lua require("which-key").show(">", {mode = "n", auto = true})
+nnoremap <silent> >aÞ <Nop>
+nnoremap <silent> >iÞ <Nop>
+nnoremap <silent> @Þ <Nop>
+nnoremap <silent> @ <Cmd>lua require("which-key").show("@", {mode = "n", auto = true})
+nnoremap <silent> K :call quickui#tools#clever_context('k', g:context_menu_k, {})
+noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<Cmd>lua require('hlslens').start()
+map Y y$
+xnoremap <silent> [Þ <Nop>
+xnoremap <silent> [ <Cmd>lua require("which-key").show("[", {mode = "v", auto = true})
+nnoremap <silent> [Þ <Nop>
+nnoremap <silent> [ <Cmd>lua require("which-key").show("[", {mode = "n", auto = true})
+omap <silent> [% <Plug>(MatchitOperationMultiBackward)
+xmap <silent> [% <Plug>(MatchitVisualMultiBackward)
+nmap <silent> [% <Plug>(MatchitNormalMultiBackward)
+xnoremap <silent> \Þ <Nop>
+xnoremap <silent> \ <Cmd>lua require("which-key").show("\\", {mode = "v", auto = true})
+nnoremap <silent> \Þ <Nop>
+nnoremap <silent> \ <Cmd>lua require("which-key").show("\\", {mode = "n", auto = true})
+map \ O
+xnoremap <silent> ]Þ <Nop>
+xnoremap <silent> ] <Cmd>lua require("which-key").show("]", {mode = "v", auto = true})
+nnoremap <silent> ]Þ <Nop>
+nnoremap <silent> ] <Cmd>lua require("which-key").show("]", {mode = "n", auto = true})
+omap <silent> ]% <Plug>(MatchitOperationMultiForward)
+xmap <silent> ]% <Plug>(MatchitVisualMultiForward)
+nmap <silent> ]% <Plug>(MatchitNormalMultiForward)
+nnoremap <silent> ` <Cmd>lua require("which-key").show("`", {mode = "n", auto = true})
+xnoremap <silent> aÞ <Nop>
+xnoremap <silent> a <Cmd>lua require("which-key").show("a", {mode = "v", auto = true})
+xmap a% <Plug>(MatchitVisualTextObject)
+nnoremap <silent> caÞ <Nop>
+nnoremap <silent> ciÞ <Nop>
+nnoremap <silent> cÞ <Nop>
+nnoremap <silent> c <Cmd>lua require("which-key").show("c", {mode = "n", auto = true})
+nnoremap <silent> cr <Cmd>lua vim.lsp.buf.rename()
+nnoremap <silent> daÞ <Nop>
+nnoremap <silent> diÞ <Nop>
+nnoremap <silent> dÞ <Nop>
+nnoremap <silent> d <Cmd>lua require("which-key").show("d", {mode = "n", auto = true})
+xnoremap <silent> gÞ <Nop>
+xnoremap <silent> g <Cmd>lua require("which-key").show("g", {mode = "v", auto = true})
+nnoremap <silent> g~aÞ <Nop>
+nnoremap <silent> g~iÞ <Nop>
+nnoremap <silent> g~Þ <Nop>
+nnoremap <silent> guaÞ <Nop>
+nnoremap <silent> guiÞ <Nop>
+nnoremap <silent> guÞ <Nop>
+nnoremap <silent> gUaÞ <Nop>
+nnoremap <silent> gUiÞ <Nop>
+nnoremap <silent> gUÞ <Nop>
+nnoremap <silent> gÞ <Nop>
+nnoremap <silent> g <Cmd>lua require("which-key").show("g", {mode = "n", auto = true})
+omap <silent> g% <Plug>(MatchitOperationBackward)
+xmap <silent> g% <Plug>(MatchitVisualBackward)
+nmap <silent> g% <Plug>(MatchitNormalBackward)
+nnoremap gp `[v`]
+noremap g# g#<Cmd>lua require('hlslens').start()
+noremap g* g*<Cmd>lua require('hlslens').start()
+nnoremap <silent> gW <Cmd>lua vim.lsp.buf.workspace_symbol()
+nnoremap <silent> g0 <Cmd>lua vim.lsp.buf.document_symbol()
+nnoremap <silent> gr <Cmd>lua require'telescope.builtin'.lsp_references{}
+nnoremap <silent> gD <Cmd>lua vim.lsp.buf.implementation()
+nnoremap <silent> gh <Cmd>lua vim.lsp.buf.hover()
+nnoremap <silent> gd <Cmd>lua require'telescope.builtin'.lsp_definitions{}
+nnoremap <silent> gs <Cmd>lua vim.lsp.buf.declaration()
+xnoremap <silent> iÞ <Nop>
+xnoremap <silent> i <Cmd>lua require("which-key").show("i", {mode = "v", auto = true})
+vnoremap ii 
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<Cmd>lua require('hlslens').start()
+nnoremap <silent> stÞ <Nop>
+nnoremap <silent> sÞ <Nop>
+nnoremap <silent> s <Cmd>lua require("which-key").show("s", {mode = "n", auto = true})
+nnoremap sr <Cmd>lua require'surround'.surround_replace()
+nnoremap sd <Cmd>lua require'surround'.surround_delete()
+vnoremap s gv<Cmd>lua require'surround'.surround_add()
+nnoremap ss <Cmd>lua require'surround'.repeat_last()
+nnoremap stB <Cmd>lua require'surround'.toggle_brackets(0)
+nnoremap stb <Cmd>lua require'surround'.toggle_brackets(0)
+nnoremap stq <Cmd>lua require'surround'.toggle_quotes()
+nnoremap sa <Cmd>set operatorfunc=SurroundAddOperatorModeg@
+nnoremap <silent> vaÞ <Nop>
+nnoremap <silent> viÞ <Nop>
+nnoremap <silent> vÞ <Nop>
+nnoremap <silent> v <Cmd>lua require("which-key").show("v", {mode = "n", auto = true})
+nnoremap <silent> yaÞ <Nop>
+nnoremap <silent> yiÞ <Nop>
+nnoremap <silent> yÞ <Nop>
+nnoremap <silent> y <Cmd>lua require("which-key").show("y", {mode = "n", auto = true})
+xnoremap <silent> zÞ <Nop>
+xnoremap <silent> z <Cmd>lua require("which-key").show("z", {mode = "v", auto = true})
+nnoremap <silent> zfaÞ <Nop>
+nnoremap <silent> zfiÞ <Nop>
+nnoremap <silent> zfÞ <Nop>
+nnoremap <silent> zÞ <Nop>
+nnoremap <silent> z <Cmd>lua require("which-key").show("z", {mode = "n", auto = true})
+xnoremap <silent> zt <Cmd>lua require('neoscroll').zt(250)
+nnoremap <silent> zt <Cmd>lua require('neoscroll').zt(250)
+xnoremap <silent> zb <Cmd>lua require('neoscroll').zb(250)
+nnoremap <silent> zb <Cmd>lua require('neoscroll').zb(250)
+xnoremap <silent> zz <Cmd>lua require('neoscroll').zz(250)
+nnoremap <silent> zz <Cmd>lua require('neoscroll').zz(250)
+tmap <Plug>(cmp.utils.keymap.normalize) 
+xmap <silent> <Plug>(MatchitVisualTextObject) <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)
+onoremap <silent> <Plug>(MatchitOperationMultiForward) :call matchit#MultiMatch("W",  "o")
+onoremap <silent> <Plug>(MatchitOperationMultiBackward) :call matchit#MultiMatch("bW", "o")
+xnoremap <silent> <Plug>(MatchitVisualMultiForward) :call matchit#MultiMatch("W",  "n")m'gv``
+xnoremap <silent> <Plug>(MatchitVisualMultiBackward) :call matchit#MultiMatch("bW", "n")m'gv``
+nnoremap <silent> <Plug>(MatchitNormalMultiForward) :call matchit#MultiMatch("W",  "n")
+nnoremap <silent> <Plug>(MatchitNormalMultiBackward) :call matchit#MultiMatch("bW", "n")
+onoremap <silent> <Plug>(MatchitOperationBackward) :call matchit#Match_wrapper('',0,'o')
+onoremap <silent> <Plug>(MatchitOperationForward) :call matchit#Match_wrapper('',1,'o')
+xnoremap <silent> <Plug>(MatchitVisualBackward) :call matchit#Match_wrapper('',0,'v')m'gv``
+xnoremap <silent> <Plug>(MatchitVisualForward) :call matchit#Match_wrapper('',1,'v')m'gv``
+nnoremap <silent> <Plug>(MatchitNormalBackward) :call matchit#Match_wrapper('',0,'n')
+nnoremap <silent> <Plug>(MatchitNormalForward) :call matchit#Match_wrapper('',1,'n')
+map <silent> <Plug>(easymotion-prefix)N <Plug>(easymotion-N)
+map <silent> <Plug>(easymotion-prefix)n <Plug>(easymotion-n)
+map <silent> <Plug>(easymotion-prefix)k <Plug>(easymotion-k)
+map <silent> <Plug>(easymotion-prefix)j <Plug>(easymotion-j)
+map <silent> <Plug>(easymotion-prefix)gE <Plug>(easymotion-gE)
+map <silent> <Plug>(easymotion-prefix)ge <Plug>(easymotion-ge)
+map <silent> <Plug>(easymotion-prefix)E <Plug>(easymotion-E)
+map <silent> <Plug>(easymotion-prefix)e <Plug>(easymotion-e)
+map <silent> <Plug>(easymotion-prefix)B <Plug>(easymotion-B)
+map <silent> <Plug>(easymotion-prefix)b <Plug>(easymotion-b)
+map <silent> <Plug>(easymotion-prefix)W <Plug>(easymotion-W)
+map <silent> <Plug>(easymotion-prefix)w <Plug>(easymotion-w)
+map <silent> <Plug>(easymotion-prefix)T <Plug>(easymotion-T)
+map <silent> <Plug>(easymotion-prefix)t <Plug>(easymotion-t)
+map <silent> <Plug>(easymotion-prefix)s <Plug>(easymotion-s)
+map <silent> <Plug>(easymotion-prefix)F <Plug>(easymotion-F)
+map <silent> <Plug>(easymotion-prefix)f <Plug>(easymotion-f)
+xnoremap <silent> <Plug>(easymotion-activate) :call EasyMotion#activate(1)
+nnoremap <silent> <Plug>(easymotion-activate) :call EasyMotion#activate(0)
+snoremap <silent> <Plug>(easymotion-activate) :call EasyMotion#activate(0)
+onoremap <silent> <Plug>(easymotion-activate) :call EasyMotion#activate(0)
+noremap <silent> <Plug>(easymotion-dotrepeat) :call EasyMotion#DotRepeat()
+xnoremap <silent> <Plug>(easymotion-repeat) :call EasyMotion#Repeat(1)
+nnoremap <silent> <Plug>(easymotion-repeat) :call EasyMotion#Repeat(0)
+snoremap <silent> <Plug>(easymotion-repeat) :call EasyMotion#Repeat(0)
+onoremap <silent> <Plug>(easymotion-repeat) :call EasyMotion#Repeat(0)
+xnoremap <silent> <Plug>(easymotion-prev) :call EasyMotion#NextPrevious(1,1)
+nnoremap <silent> <Plug>(easymotion-prev) :call EasyMotion#NextPrevious(0,1)
+snoremap <silent> <Plug>(easymotion-prev) :call EasyMotion#NextPrevious(0,1)
+onoremap <silent> <Plug>(easymotion-prev) :call EasyMotion#NextPrevious(0,1)
+xnoremap <silent> <Plug>(easymotion-next) :call EasyMotion#NextPrevious(1,0)
+nnoremap <silent> <Plug>(easymotion-next) :call EasyMotion#NextPrevious(0,0)
+snoremap <silent> <Plug>(easymotion-next) :call EasyMotion#NextPrevious(0,0)
+onoremap <silent> <Plug>(easymotion-next) :call EasyMotion#NextPrevious(0,0)
+xnoremap <silent> <Plug>(easymotion-wl) :call EasyMotion#WBL(1,0)
+nnoremap <silent> <Plug>(easymotion-wl) :call EasyMotion#WBL(0,0)
+snoremap <silent> <Plug>(easymotion-wl) :call EasyMotion#WBL(0,0)
+onoremap <silent> <Plug>(easymotion-wl) :call EasyMotion#WBL(0,0)
+xnoremap <silent> <Plug>(easymotion-lineforward) :call EasyMotion#LineAnywhere(1,0)
+nnoremap <silent> <Plug>(easymotion-lineforward) :call EasyMotion#LineAnywhere(0,0)
+snoremap <silent> <Plug>(easymotion-lineforward) :call EasyMotion#LineAnywhere(0,0)
+onoremap <silent> <Plug>(easymotion-lineforward) :call EasyMotion#LineAnywhere(0,0)
+xnoremap <silent> <Plug>(easymotion-lineanywhere) :call EasyMotion#LineAnywhere(1,2)
+nnoremap <silent> <Plug>(easymotion-lineanywhere) :call EasyMotion#LineAnywhere(0,2)
+snoremap <silent> <Plug>(easymotion-lineanywhere) :call EasyMotion#LineAnywhere(0,2)
+onoremap <silent> <Plug>(easymotion-lineanywhere) :call EasyMotion#LineAnywhere(0,2)
+xnoremap <silent> <Plug>(easymotion-bd-wl) :call EasyMotion#WBL(1,2)
+nnoremap <silent> <Plug>(easymotion-bd-wl) :call EasyMotion#WBL(0,2)
+snoremap <silent> <Plug>(easymotion-bd-wl) :call EasyMotion#WBL(0,2)
+onoremap <silent> <Plug>(easymotion-bd-wl) :call EasyMotion#WBL(0,2)
+xnoremap <silent> <Plug>(easymotion-linebackward) :call EasyMotion#LineAnywhere(1,1)
+nnoremap <silent> <Plug>(easymotion-linebackward) :call EasyMotion#LineAnywhere(0,1)
+snoremap <silent> <Plug>(easymotion-linebackward) :call EasyMotion#LineAnywhere(0,1)
+onoremap <silent> <Plug>(easymotion-linebackward) :call EasyMotion#LineAnywhere(0,1)
+xnoremap <silent> <Plug>(easymotion-bl) :call EasyMotion#WBL(1,1)
+nnoremap <silent> <Plug>(easymotion-bl) :call EasyMotion#WBL(0,1)
+snoremap <silent> <Plug>(easymotion-bl) :call EasyMotion#WBL(0,1)
+onoremap <silent> <Plug>(easymotion-bl) :call EasyMotion#WBL(0,1)
+xnoremap <silent> <Plug>(easymotion-el) :call EasyMotion#EL(1,0)
+nnoremap <silent> <Plug>(easymotion-el) :call EasyMotion#EL(0,0)
+snoremap <silent> <Plug>(easymotion-el) :call EasyMotion#EL(0,0)
+onoremap <silent> <Plug>(easymotion-el) :call EasyMotion#EL(0,0)
+xnoremap <silent> <Plug>(easymotion-gel) :call EasyMotion#EL(1,1)
+nnoremap <silent> <Plug>(easymotion-gel) :call EasyMotion#EL(0,1)
+snoremap <silent> <Plug>(easymotion-gel) :call EasyMotion#EL(0,1)
+onoremap <silent> <Plug>(easymotion-gel) :call EasyMotion#EL(0,1)
+xnoremap <silent> <Plug>(easymotion-bd-el) :call EasyMotion#EL(1,2)
+nnoremap <silent> <Plug>(easymotion-bd-el) :call EasyMotion#EL(0,2)
+snoremap <silent> <Plug>(easymotion-bd-el) :call EasyMotion#EL(0,2)
+onoremap <silent> <Plug>(easymotion-bd-el) :call EasyMotion#EL(0,2)
+xnoremap <silent> <Plug>(easymotion-jumptoanywhere) :call EasyMotion#JumpToAnywhere(1,2)
+nnoremap <silent> <Plug>(easymotion-jumptoanywhere) :call EasyMotion#JumpToAnywhere(0,2)
+snoremap <silent> <Plug>(easymotion-jumptoanywhere) :call EasyMotion#JumpToAnywhere(0,2)
+onoremap <silent> <Plug>(easymotion-jumptoanywhere) :call EasyMotion#JumpToAnywhere(0,2)
+xnoremap <silent> <Plug>(easymotion-vim-n) :call EasyMotion#Search(1,0,1)
+nnoremap <silent> <Plug>(easymotion-vim-n) :call EasyMotion#Search(0,0,1)
+snoremap <silent> <Plug>(easymotion-vim-n) :call EasyMotion#Search(0,0,1)
+onoremap <silent> <Plug>(easymotion-vim-n) :call EasyMotion#Search(0,0,1)
+xnoremap <silent> <Plug>(easymotion-n) :call EasyMotion#Search(1,0,0)
+nnoremap <silent> <Plug>(easymotion-n) :call EasyMotion#Search(0,0,0)
+snoremap <silent> <Plug>(easymotion-n) :call EasyMotion#Search(0,0,0)
+onoremap <silent> <Plug>(easymotion-n) :call EasyMotion#Search(0,0,0)
+xnoremap <silent> <Plug>(easymotion-bd-n) :call EasyMotion#Search(1,2,0)
+nnoremap <silent> <Plug>(easymotion-bd-n) :call EasyMotion#Search(0,2,0)
+snoremap <silent> <Plug>(easymotion-bd-n) :call EasyMotion#Search(0,2,0)
+onoremap <silent> <Plug>(easymotion-bd-n) :call EasyMotion#Search(0,2,0)
+xnoremap <silent> <Plug>(easymotion-vim-N) :call EasyMotion#Search(1,1,1)
+nnoremap <silent> <Plug>(easymotion-vim-N) :call EasyMotion#Search(0,1,1)
+snoremap <silent> <Plug>(easymotion-vim-N) :call EasyMotion#Search(0,1,1)
+onoremap <silent> <Plug>(easymotion-vim-N) :call EasyMotion#Search(0,1,1)
+xnoremap <silent> <Plug>(easymotion-N) :call EasyMotion#Search(1,1,0)
+nnoremap <silent> <Plug>(easymotion-N) :call EasyMotion#Search(0,1,0)
+snoremap <silent> <Plug>(easymotion-N) :call EasyMotion#Search(0,1,0)
+onoremap <silent> <Plug>(easymotion-N) :call EasyMotion#Search(0,1,0)
+xnoremap <silent> <Plug>(easymotion-eol-j) :call EasyMotion#Eol(1,0)
+nnoremap <silent> <Plug>(easymotion-eol-j) :call EasyMotion#Eol(0,0)
+snoremap <silent> <Plug>(easymotion-eol-j) :call EasyMotion#Eol(0,0)
+onoremap <silent> <Plug>(easymotion-eol-j) :call EasyMotion#Eol(0,0)
+xnoremap <silent> <Plug>(easymotion-sol-k) :call EasyMotion#Sol(1,1)
+nnoremap <silent> <Plug>(easymotion-sol-k) :call EasyMotion#Sol(0,1)
+snoremap <silent> <Plug>(easymotion-sol-k) :call EasyMotion#Sol(0,1)
+onoremap <silent> <Plug>(easymotion-sol-k) :call EasyMotion#Sol(0,1)
+xnoremap <silent> <Plug>(easymotion-sol-j) :call EasyMotion#Sol(1,0)
+nnoremap <silent> <Plug>(easymotion-sol-j) :call EasyMotion#Sol(0,0)
+snoremap <silent> <Plug>(easymotion-sol-j) :call EasyMotion#Sol(0,0)
+onoremap <silent> <Plug>(easymotion-sol-j) :call EasyMotion#Sol(0,0)
+xnoremap <silent> <Plug>(easymotion-k) :call EasyMotion#JK(1,1)
+nnoremap <silent> <Plug>(easymotion-k) :call EasyMotion#JK(0,1)
+snoremap <silent> <Plug>(easymotion-k) :call EasyMotion#JK(0,1)
+onoremap <silent> <Plug>(easymotion-k) :call EasyMotion#JK(0,1)
+xnoremap <silent> <Plug>(easymotion-j) :call EasyMotion#JK(1,0)
+nnoremap <silent> <Plug>(easymotion-j) :call EasyMotion#JK(0,0)
+snoremap <silent> <Plug>(easymotion-j) :call EasyMotion#JK(0,0)
+onoremap <silent> <Plug>(easymotion-j) :call EasyMotion#JK(0,0)
+xnoremap <silent> <Plug>(easymotion-bd-jk) :call EasyMotion#JK(1,2)
+nnoremap <silent> <Plug>(easymotion-bd-jk) :call EasyMotion#JK(0,2)
+snoremap <silent> <Plug>(easymotion-bd-jk) :call EasyMotion#JK(0,2)
+onoremap <silent> <Plug>(easymotion-bd-jk) :call EasyMotion#JK(0,2)
+xnoremap <silent> <Plug>(easymotion-eol-bd-jk) :call EasyMotion#Eol(1,2)
+nnoremap <silent> <Plug>(easymotion-eol-bd-jk) :call EasyMotion#Eol(0,2)
+snoremap <silent> <Plug>(easymotion-eol-bd-jk) :call EasyMotion#Eol(0,2)
+onoremap <silent> <Plug>(easymotion-eol-bd-jk) :call EasyMotion#Eol(0,2)
+xnoremap <silent> <Plug>(easymotion-sol-bd-jk) :call EasyMotion#Sol(1,2)
+nnoremap <silent> <Plug>(easymotion-sol-bd-jk) :call EasyMotion#Sol(0,2)
+snoremap <silent> <Plug>(easymotion-sol-bd-jk) :call EasyMotion#Sol(0,2)
+onoremap <silent> <Plug>(easymotion-sol-bd-jk) :call EasyMotion#Sol(0,2)
+xnoremap <silent> <Plug>(easymotion-eol-k) :call EasyMotion#Eol(1,1)
+nnoremap <silent> <Plug>(easymotion-eol-k) :call EasyMotion#Eol(0,1)
+snoremap <silent> <Plug>(easymotion-eol-k) :call EasyMotion#Eol(0,1)
+onoremap <silent> <Plug>(easymotion-eol-k) :call EasyMotion#Eol(0,1)
+xnoremap <silent> <Plug>(easymotion-iskeyword-ge) :call EasyMotion#EK(1,1)
+nnoremap <silent> <Plug>(easymotion-iskeyword-ge) :call EasyMotion#EK(0,1)
+snoremap <silent> <Plug>(easymotion-iskeyword-ge) :call EasyMotion#EK(0,1)
+onoremap <silent> <Plug>(easymotion-iskeyword-ge) :call EasyMotion#EK(0,1)
+xnoremap <silent> <Plug>(easymotion-w) :call EasyMotion#WB(1,0)
+nnoremap <silent> <Plug>(easymotion-w) :call EasyMotion#WB(0,0)
+snoremap <silent> <Plug>(easymotion-w) :call EasyMotion#WB(0,0)
+onoremap <silent> <Plug>(easymotion-w) :call EasyMotion#WB(0,0)
+xnoremap <silent> <Plug>(easymotion-bd-W) :call EasyMotion#WBW(1,2)
+nnoremap <silent> <Plug>(easymotion-bd-W) :call EasyMotion#WBW(0,2)
+snoremap <silent> <Plug>(easymotion-bd-W) :call EasyMotion#WBW(0,2)
+onoremap <silent> <Plug>(easymotion-bd-W) :call EasyMotion#WBW(0,2)
+xnoremap <silent> <Plug>(easymotion-iskeyword-w) :call EasyMotion#WBK(1,0)
+nnoremap <silent> <Plug>(easymotion-iskeyword-w) :call EasyMotion#WBK(0,0)
+snoremap <silent> <Plug>(easymotion-iskeyword-w) :call EasyMotion#WBK(0,0)
+onoremap <silent> <Plug>(easymotion-iskeyword-w) :call EasyMotion#WBK(0,0)
+xnoremap <silent> <Plug>(easymotion-gE) :call EasyMotion#EW(1,1)
+nnoremap <silent> <Plug>(easymotion-gE) :call EasyMotion#EW(0,1)
+snoremap <silent> <Plug>(easymotion-gE) :call EasyMotion#EW(0,1)
+onoremap <silent> <Plug>(easymotion-gE) :call EasyMotion#EW(0,1)
+xnoremap <silent> <Plug>(easymotion-e) :call EasyMotion#E(1,0)
+nnoremap <silent> <Plug>(easymotion-e) :call EasyMotion#E(0,0)
+snoremap <silent> <Plug>(easymotion-e) :call EasyMotion#E(0,0)
+onoremap <silent> <Plug>(easymotion-e) :call EasyMotion#E(0,0)
+xnoremap <silent> <Plug>(easymotion-bd-E) :call EasyMotion#EW(1,2)
+nnoremap <silent> <Plug>(easymotion-bd-E) :call EasyMotion#EW(0,2)
+snoremap <silent> <Plug>(easymotion-bd-E) :call EasyMotion#EW(0,2)
+onoremap <silent> <Plug>(easymotion-bd-E) :call EasyMotion#EW(0,2)
+xnoremap <silent> <Plug>(easymotion-iskeyword-e) :call EasyMotion#EK(1,0)
+nnoremap <silent> <Plug>(easymotion-iskeyword-e) :call EasyMotion#EK(0,0)
+snoremap <silent> <Plug>(easymotion-iskeyword-e) :call EasyMotion#EK(0,0)
+onoremap <silent> <Plug>(easymotion-iskeyword-e) :call EasyMotion#EK(0,0)
+xnoremap <silent> <Plug>(easymotion-b) :call EasyMotion#WB(1,1)
+nnoremap <silent> <Plug>(easymotion-b) :call EasyMotion#WB(0,1)
+snoremap <silent> <Plug>(easymotion-b) :call EasyMotion#WB(0,1)
+onoremap <silent> <Plug>(easymotion-b) :call EasyMotion#WB(0,1)
+xnoremap <silent> <Plug>(easymotion-iskeyword-b) :call EasyMotion#WBK(1,1)
+nnoremap <silent> <Plug>(easymotion-iskeyword-b) :call EasyMotion#WBK(0,1)
+snoremap <silent> <Plug>(easymotion-iskeyword-b) :call EasyMotion#WBK(0,1)
+onoremap <silent> <Plug>(easymotion-iskeyword-b) :call EasyMotion#WBK(0,1)
+xnoremap <silent> <Plug>(easymotion-iskeyword-bd-w) :call EasyMotion#WBK(1,2)
+nnoremap <silent> <Plug>(easymotion-iskeyword-bd-w) :call EasyMotion#WBK(0,2)
+snoremap <silent> <Plug>(easymotion-iskeyword-bd-w) :call EasyMotion#WBK(0,2)
+onoremap <silent> <Plug>(easymotion-iskeyword-bd-w) :call EasyMotion#WBK(0,2)
+xnoremap <silent> <Plug>(easymotion-W) :call EasyMotion#WBW(1,0)
+nnoremap <silent> <Plug>(easymotion-W) :call EasyMotion#WBW(0,0)
+snoremap <silent> <Plug>(easymotion-W) :call EasyMotion#WBW(0,0)
+onoremap <silent> <Plug>(easymotion-W) :call EasyMotion#WBW(0,0)
+xnoremap <silent> <Plug>(easymotion-bd-w) :call EasyMotion#WB(1,2)
+nnoremap <silent> <Plug>(easymotion-bd-w) :call EasyMotion#WB(0,2)
+snoremap <silent> <Plug>(easymotion-bd-w) :call EasyMotion#WB(0,2)
+onoremap <silent> <Plug>(easymotion-bd-w) :call EasyMotion#WB(0,2)
+xnoremap <silent> <Plug>(easymotion-iskeyword-bd-e) :call EasyMotion#EK(1,2)
+nnoremap <silent> <Plug>(easymotion-iskeyword-bd-e) :call EasyMotion#EK(0,2)
+snoremap <silent> <Plug>(easymotion-iskeyword-bd-e) :call EasyMotion#EK(0,2)
+onoremap <silent> <Plug>(easymotion-iskeyword-bd-e) :call EasyMotion#EK(0,2)
+xnoremap <silent> <Plug>(easymotion-ge) :call EasyMotion#E(1,1)
+nnoremap <silent> <Plug>(easymotion-ge) :call EasyMotion#E(0,1)
+snoremap <silent> <Plug>(easymotion-ge) :call EasyMotion#E(0,1)
+onoremap <silent> <Plug>(easymotion-ge) :call EasyMotion#E(0,1)
+xnoremap <silent> <Plug>(easymotion-E) :call EasyMotion#EW(1,0)
+nnoremap <silent> <Plug>(easymotion-E) :call EasyMotion#EW(0,0)
+snoremap <silent> <Plug>(easymotion-E) :call EasyMotion#EW(0,0)
+onoremap <silent> <Plug>(easymotion-E) :call EasyMotion#EW(0,0)
+xnoremap <silent> <Plug>(easymotion-bd-e) :call EasyMotion#E(1,2)
+nnoremap <silent> <Plug>(easymotion-bd-e) :call EasyMotion#E(0,2)
+snoremap <silent> <Plug>(easymotion-bd-e) :call EasyMotion#E(0,2)
+onoremap <silent> <Plug>(easymotion-bd-e) :call EasyMotion#E(0,2)
+xnoremap <silent> <Plug>(easymotion-B) :call EasyMotion#WBW(1,1)
+nnoremap <silent> <Plug>(easymotion-B) :call EasyMotion#WBW(0,1)
+snoremap <silent> <Plug>(easymotion-B) :call EasyMotion#WBW(0,1)
+onoremap <silent> <Plug>(easymotion-B) :call EasyMotion#WBW(0,1)
+nnoremap <silent> <Plug>(easymotion-overwin-w) :call EasyMotion#overwin#w()
+nnoremap <silent> <Plug>(easymotion-overwin-line) :call EasyMotion#overwin#line()
+nnoremap <silent> <Plug>(easymotion-overwin-f2) :call EasyMotion#OverwinF(2)
+nnoremap <silent> <Plug>(easymotion-overwin-f) :call EasyMotion#OverwinF(1)
+xnoremap <silent> <Plug>(easymotion-Tln) :call EasyMotion#TL(-1,1,1)
+nnoremap <silent> <Plug>(easymotion-Tln) :call EasyMotion#TL(-1,0,1)
+snoremap <silent> <Plug>(easymotion-Tln) :call EasyMotion#TL(-1,0,1)
+onoremap <silent> <Plug>(easymotion-Tln) :call EasyMotion#TL(-1,0,1)
+xnoremap <silent> <Plug>(easymotion-t2) :call EasyMotion#T(2,1,0)
+nnoremap <silent> <Plug>(easymotion-t2) :call EasyMotion#T(2,0,0)
+snoremap <silent> <Plug>(easymotion-t2) :call EasyMotion#T(2,0,0)
+onoremap <silent> <Plug>(easymotion-t2) :call EasyMotion#T(2,0,0)
+xnoremap <silent> <Plug>(easymotion-t) :call EasyMotion#T(1,1,0)
+nnoremap <silent> <Plug>(easymotion-t) :call EasyMotion#T(1,0,0)
+snoremap <silent> <Plug>(easymotion-t) :call EasyMotion#T(1,0,0)
+onoremap <silent> <Plug>(easymotion-t) :call EasyMotion#T(1,0,0)
+xnoremap <silent> <Plug>(easymotion-s) :call EasyMotion#S(1,1,2)
+nnoremap <silent> <Plug>(easymotion-s) :call EasyMotion#S(1,0,2)
+snoremap <silent> <Plug>(easymotion-s) :call EasyMotion#S(1,0,2)
+onoremap <silent> <Plug>(easymotion-s) :call EasyMotion#S(1,0,2)
+xnoremap <silent> <Plug>(easymotion-tn) :call EasyMotion#T(-1,1,0)
+nnoremap <silent> <Plug>(easymotion-tn) :call EasyMotion#T(-1,0,0)
+snoremap <silent> <Plug>(easymotion-tn) :call EasyMotion#T(-1,0,0)
+onoremap <silent> <Plug>(easymotion-tn) :call EasyMotion#T(-1,0,0)
+xnoremap <silent> <Plug>(easymotion-bd-t2) :call EasyMotion#T(2,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-t2) :call EasyMotion#T(2,0,2)
+snoremap <silent> <Plug>(easymotion-bd-t2) :call EasyMotion#T(2,0,2)
+onoremap <silent> <Plug>(easymotion-bd-t2) :call EasyMotion#T(2,0,2)
+xnoremap <silent> <Plug>(easymotion-tl) :call EasyMotion#TL(1,1,0)
+nnoremap <silent> <Plug>(easymotion-tl) :call EasyMotion#TL(1,0,0)
+snoremap <silent> <Plug>(easymotion-tl) :call EasyMotion#TL(1,0,0)
+onoremap <silent> <Plug>(easymotion-tl) :call EasyMotion#TL(1,0,0)
+xnoremap <silent> <Plug>(easymotion-bd-tn) :call EasyMotion#T(-1,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-tn) :call EasyMotion#T(-1,0,2)
+snoremap <silent> <Plug>(easymotion-bd-tn) :call EasyMotion#T(-1,0,2)
+onoremap <silent> <Plug>(easymotion-bd-tn) :call EasyMotion#T(-1,0,2)
+xnoremap <silent> <Plug>(easymotion-fn) :call EasyMotion#S(-1,1,0)
+nnoremap <silent> <Plug>(easymotion-fn) :call EasyMotion#S(-1,0,0)
+snoremap <silent> <Plug>(easymotion-fn) :call EasyMotion#S(-1,0,0)
+onoremap <silent> <Plug>(easymotion-fn) :call EasyMotion#S(-1,0,0)
+xnoremap <silent> <Plug>(easymotion-bd-tl) :call EasyMotion#TL(1,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-tl) :call EasyMotion#TL(1,0,2)
+snoremap <silent> <Plug>(easymotion-bd-tl) :call EasyMotion#TL(1,0,2)
+onoremap <silent> <Plug>(easymotion-bd-tl) :call EasyMotion#TL(1,0,2)
+xnoremap <silent> <Plug>(easymotion-fl) :call EasyMotion#SL(1,1,0)
+nnoremap <silent> <Plug>(easymotion-fl) :call EasyMotion#SL(1,0,0)
+snoremap <silent> <Plug>(easymotion-fl) :call EasyMotion#SL(1,0,0)
+onoremap <silent> <Plug>(easymotion-fl) :call EasyMotion#SL(1,0,0)
+xnoremap <silent> <Plug>(easymotion-bd-tl2) :call EasyMotion#TL(2,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-tl2) :call EasyMotion#TL(2,0,2)
+snoremap <silent> <Plug>(easymotion-bd-tl2) :call EasyMotion#TL(2,0,2)
+onoremap <silent> <Plug>(easymotion-bd-tl2) :call EasyMotion#TL(2,0,2)
+xnoremap <silent> <Plug>(easymotion-bd-fn) :call EasyMotion#S(-1,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-fn) :call EasyMotion#S(-1,0,2)
+snoremap <silent> <Plug>(easymotion-bd-fn) :call EasyMotion#S(-1,0,2)
+onoremap <silent> <Plug>(easymotion-bd-fn) :call EasyMotion#S(-1,0,2)
+xnoremap <silent> <Plug>(easymotion-f) :call EasyMotion#S(1,1,0)
+nnoremap <silent> <Plug>(easymotion-f) :call EasyMotion#S(1,0,0)
+snoremap <silent> <Plug>(easymotion-f) :call EasyMotion#S(1,0,0)
+onoremap <silent> <Plug>(easymotion-f) :call EasyMotion#S(1,0,0)
+xnoremap <silent> <Plug>(easymotion-bd-fl) :call EasyMotion#SL(1,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-fl) :call EasyMotion#SL(1,0,2)
+snoremap <silent> <Plug>(easymotion-bd-fl) :call EasyMotion#SL(1,0,2)
+onoremap <silent> <Plug>(easymotion-bd-fl) :call EasyMotion#SL(1,0,2)
+xnoremap <silent> <Plug>(easymotion-Fl2) :call EasyMotion#SL(2,1,1)
+nnoremap <silent> <Plug>(easymotion-Fl2) :call EasyMotion#SL(2,0,1)
+snoremap <silent> <Plug>(easymotion-Fl2) :call EasyMotion#SL(2,0,1)
+onoremap <silent> <Plug>(easymotion-Fl2) :call EasyMotion#SL(2,0,1)
+xnoremap <silent> <Plug>(easymotion-tl2) :call EasyMotion#TL(2,1,0)
+nnoremap <silent> <Plug>(easymotion-tl2) :call EasyMotion#TL(2,0,0)
+snoremap <silent> <Plug>(easymotion-tl2) :call EasyMotion#TL(2,0,0)
+onoremap <silent> <Plug>(easymotion-tl2) :call EasyMotion#TL(2,0,0)
+xnoremap <silent> <Plug>(easymotion-f2) :call EasyMotion#S(2,1,0)
+nnoremap <silent> <Plug>(easymotion-f2) :call EasyMotion#S(2,0,0)
+snoremap <silent> <Plug>(easymotion-f2) :call EasyMotion#S(2,0,0)
+onoremap <silent> <Plug>(easymotion-f2) :call EasyMotion#S(2,0,0)
+xnoremap <silent> <Plug>(easymotion-Fln) :call EasyMotion#SL(-1,1,1)
+nnoremap <silent> <Plug>(easymotion-Fln) :call EasyMotion#SL(-1,0,1)
+snoremap <silent> <Plug>(easymotion-Fln) :call EasyMotion#SL(-1,0,1)
+onoremap <silent> <Plug>(easymotion-Fln) :call EasyMotion#SL(-1,0,1)
+xnoremap <silent> <Plug>(easymotion-sln) :call EasyMotion#SL(-1,1,2)
+nnoremap <silent> <Plug>(easymotion-sln) :call EasyMotion#SL(-1,0,2)
+snoremap <silent> <Plug>(easymotion-sln) :call EasyMotion#SL(-1,0,2)
+onoremap <silent> <Plug>(easymotion-sln) :call EasyMotion#SL(-1,0,2)
+xnoremap <silent> <Plug>(easymotion-tln) :call EasyMotion#TL(-1,1,0)
+nnoremap <silent> <Plug>(easymotion-tln) :call EasyMotion#TL(-1,0,0)
+snoremap <silent> <Plug>(easymotion-tln) :call EasyMotion#TL(-1,0,0)
+onoremap <silent> <Plug>(easymotion-tln) :call EasyMotion#TL(-1,0,0)
+xnoremap <silent> <Plug>(easymotion-fl2) :call EasyMotion#SL(2,1,0)
+nnoremap <silent> <Plug>(easymotion-fl2) :call EasyMotion#SL(2,0,0)
+snoremap <silent> <Plug>(easymotion-fl2) :call EasyMotion#SL(2,0,0)
+onoremap <silent> <Plug>(easymotion-fl2) :call EasyMotion#SL(2,0,0)
+xnoremap <silent> <Plug>(easymotion-bd-fl2) :call EasyMotion#SL(2,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-fl2) :call EasyMotion#SL(2,0,2)
+snoremap <silent> <Plug>(easymotion-bd-fl2) :call EasyMotion#SL(2,0,2)
+onoremap <silent> <Plug>(easymotion-bd-fl2) :call EasyMotion#SL(2,0,2)
+xnoremap <silent> <Plug>(easymotion-T2) :call EasyMotion#T(2,1,1)
+nnoremap <silent> <Plug>(easymotion-T2) :call EasyMotion#T(2,0,1)
+snoremap <silent> <Plug>(easymotion-T2) :call EasyMotion#T(2,0,1)
+onoremap <silent> <Plug>(easymotion-T2) :call EasyMotion#T(2,0,1)
+xnoremap <silent> <Plug>(easymotion-bd-tln) :call EasyMotion#TL(-1,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-tln) :call EasyMotion#TL(-1,0,2)
+snoremap <silent> <Plug>(easymotion-bd-tln) :call EasyMotion#TL(-1,0,2)
+onoremap <silent> <Plug>(easymotion-bd-tln) :call EasyMotion#TL(-1,0,2)
+xnoremap <silent> <Plug>(easymotion-T) :call EasyMotion#T(1,1,1)
+nnoremap <silent> <Plug>(easymotion-T) :call EasyMotion#T(1,0,1)
+snoremap <silent> <Plug>(easymotion-T) :call EasyMotion#T(1,0,1)
+onoremap <silent> <Plug>(easymotion-T) :call EasyMotion#T(1,0,1)
+xnoremap <silent> <Plug>(easymotion-bd-t) :call EasyMotion#T(1,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-t) :call EasyMotion#T(1,0,2)
+snoremap <silent> <Plug>(easymotion-bd-t) :call EasyMotion#T(1,0,2)
+onoremap <silent> <Plug>(easymotion-bd-t) :call EasyMotion#T(1,0,2)
+xnoremap <silent> <Plug>(easymotion-Tn) :call EasyMotion#T(-1,1,1)
+nnoremap <silent> <Plug>(easymotion-Tn) :call EasyMotion#T(-1,0,1)
+snoremap <silent> <Plug>(easymotion-Tn) :call EasyMotion#T(-1,0,1)
+onoremap <silent> <Plug>(easymotion-Tn) :call EasyMotion#T(-1,0,1)
+xnoremap <silent> <Plug>(easymotion-s2) :call EasyMotion#S(2,1,2)
+nnoremap <silent> <Plug>(easymotion-s2) :call EasyMotion#S(2,0,2)
+snoremap <silent> <Plug>(easymotion-s2) :call EasyMotion#S(2,0,2)
+onoremap <silent> <Plug>(easymotion-s2) :call EasyMotion#S(2,0,2)
+xnoremap <silent> <Plug>(easymotion-Tl) :call EasyMotion#TL(1,1,1)
+nnoremap <silent> <Plug>(easymotion-Tl) :call EasyMotion#TL(1,0,1)
+snoremap <silent> <Plug>(easymotion-Tl) :call EasyMotion#TL(1,0,1)
+onoremap <silent> <Plug>(easymotion-Tl) :call EasyMotion#TL(1,0,1)
+xnoremap <silent> <Plug>(easymotion-sn) :call EasyMotion#S(-1,1,2)
+nnoremap <silent> <Plug>(easymotion-sn) :call EasyMotion#S(-1,0,2)
+snoremap <silent> <Plug>(easymotion-sn) :call EasyMotion#S(-1,0,2)
+onoremap <silent> <Plug>(easymotion-sn) :call EasyMotion#S(-1,0,2)
+xnoremap <silent> <Plug>(easymotion-Fn) :call EasyMotion#S(-1,1,1)
+nnoremap <silent> <Plug>(easymotion-Fn) :call EasyMotion#S(-1,0,1)
+snoremap <silent> <Plug>(easymotion-Fn) :call EasyMotion#S(-1,0,1)
+onoremap <silent> <Plug>(easymotion-Fn) :call EasyMotion#S(-1,0,1)
+xnoremap <silent> <Plug>(easymotion-sl) :call EasyMotion#SL(1,1,2)
+nnoremap <silent> <Plug>(easymotion-sl) :call EasyMotion#SL(1,0,2)
+snoremap <silent> <Plug>(easymotion-sl) :call EasyMotion#SL(1,0,2)
+onoremap <silent> <Plug>(easymotion-sl) :call EasyMotion#SL(1,0,2)
+xnoremap <silent> <Plug>(easymotion-Fl) :call EasyMotion#SL(1,1,1)
+nnoremap <silent> <Plug>(easymotion-Fl) :call EasyMotion#SL(1,0,1)
+snoremap <silent> <Plug>(easymotion-Fl) :call EasyMotion#SL(1,0,1)
+onoremap <silent> <Plug>(easymotion-Fl) :call EasyMotion#SL(1,0,1)
+xnoremap <silent> <Plug>(easymotion-sl2) :call EasyMotion#SL(2,1,2)
+nnoremap <silent> <Plug>(easymotion-sl2) :call EasyMotion#SL(2,0,2)
+snoremap <silent> <Plug>(easymotion-sl2) :call EasyMotion#SL(2,0,2)
+onoremap <silent> <Plug>(easymotion-sl2) :call EasyMotion#SL(2,0,2)
+xnoremap <silent> <Plug>(easymotion-bd-fln) :call EasyMotion#SL(-1,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-fln) :call EasyMotion#SL(-1,0,2)
+snoremap <silent> <Plug>(easymotion-bd-fln) :call EasyMotion#SL(-1,0,2)
+onoremap <silent> <Plug>(easymotion-bd-fln) :call EasyMotion#SL(-1,0,2)
+xnoremap <silent> <Plug>(easymotion-F) :call EasyMotion#S(1,1,1)
+nnoremap <silent> <Plug>(easymotion-F) :call EasyMotion#S(1,0,1)
+snoremap <silent> <Plug>(easymotion-F) :call EasyMotion#S(1,0,1)
+onoremap <silent> <Plug>(easymotion-F) :call EasyMotion#S(1,0,1)
+xnoremap <silent> <Plug>(easymotion-bd-f) :call EasyMotion#S(1,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-f) :call EasyMotion#S(1,0,2)
+snoremap <silent> <Plug>(easymotion-bd-f) :call EasyMotion#S(1,0,2)
+onoremap <silent> <Plug>(easymotion-bd-f) :call EasyMotion#S(1,0,2)
+xnoremap <silent> <Plug>(easymotion-F2) :call EasyMotion#S(2,1,1)
+nnoremap <silent> <Plug>(easymotion-F2) :call EasyMotion#S(2,0,1)
+snoremap <silent> <Plug>(easymotion-F2) :call EasyMotion#S(2,0,1)
+onoremap <silent> <Plug>(easymotion-F2) :call EasyMotion#S(2,0,1)
+xnoremap <silent> <Plug>(easymotion-bd-f2) :call EasyMotion#S(2,1,2)
+nnoremap <silent> <Plug>(easymotion-bd-f2) :call EasyMotion#S(2,0,2)
+snoremap <silent> <Plug>(easymotion-bd-f2) :call EasyMotion#S(2,0,2)
+onoremap <silent> <Plug>(easymotion-bd-f2) :call EasyMotion#S(2,0,2)
+xnoremap <silent> <Plug>(easymotion-Tl2) :call EasyMotion#TL(2,1,1)
+nnoremap <silent> <Plug>(easymotion-Tl2) :call EasyMotion#TL(2,0,1)
+snoremap <silent> <Plug>(easymotion-Tl2) :call EasyMotion#TL(2,0,1)
+onoremap <silent> <Plug>(easymotion-Tl2) :call EasyMotion#TL(2,0,1)
+xnoremap <silent> <Plug>(easymotion-fln) :call EasyMotion#SL(-1,1,0)
+nnoremap <silent> <Plug>(easymotion-fln) :call EasyMotion#SL(-1,0,0)
+snoremap <silent> <Plug>(easymotion-fln) :call EasyMotion#SL(-1,0,0)
+onoremap <silent> <Plug>(easymotion-fln) :call EasyMotion#SL(-1,0,0)
+nnoremap <Plug>NERDCommenterAltDelims :call nerdcommenter#SwitchToAlternativeDelimiters(1)
+xnoremap <silent> <Plug>NERDCommenterUncomment :call nerdcommenter#Comment("x", "Uncomment")
+nnoremap <silent> <Plug>NERDCommenterUncomment :call nerdcommenter#Comment("n", "Uncomment")
+xnoremap <silent> <Plug>NERDCommenterAlignBoth :call nerdcommenter#Comment("x", "AlignBoth")
+nnoremap <silent> <Plug>NERDCommenterAlignBoth :call nerdcommenter#Comment("n", "AlignBoth")
+xnoremap <silent> <Plug>NERDCommenterAlignLeft :call nerdcommenter#Comment("x", "AlignLeft")
+nnoremap <silent> <Plug>NERDCommenterAlignLeft :call nerdcommenter#Comment("n", "AlignLeft")
+nnoremap <silent> <Plug>NERDCommenterAppend :call nerdcommenter#Comment("n", "Append")
+xnoremap <silent> <Plug>NERDCommenterYank :call nerdcommenter#Comment("x", "Yank")
+nnoremap <silent> <Plug>NERDCommenterYank :call nerdcommenter#Comment("n", "Yank")
+xnoremap <silent> <Plug>NERDCommenterSexy :call nerdcommenter#Comment("x", "Sexy")
+nnoremap <silent> <Plug>NERDCommenterSexy :call nerdcommenter#Comment("n", "Sexy")
+xnoremap <silent> <Plug>NERDCommenterInvert :call nerdcommenter#Comment("x", "Invert")
+nnoremap <silent> <Plug>NERDCommenterInvert :call nerdcommenter#Comment("n", "Invert")
+nnoremap <silent> <Plug>NERDCommenterToEOL :call nerdcommenter#Comment("n", "ToEOL")
+xnoremap <silent> <Plug>NERDCommenterNested :call nerdcommenter#Comment("x", "Nested")
+nnoremap <silent> <Plug>NERDCommenterNested :call nerdcommenter#Comment("n", "Nested")
+xnoremap <silent> <Plug>NERDCommenterMinimal :call nerdcommenter#Comment("x", "Minimal")
+nnoremap <silent> <Plug>NERDCommenterMinimal :call nerdcommenter#Comment("n", "Minimal")
+xnoremap <silent> <Plug>NERDCommenterToggle :call nerdcommenter#Comment("x", "Toggle")
+nnoremap <silent> <Plug>NERDCommenterToggle :call nerdcommenter#Comment("n", "Toggle")
+xnoremap <silent> <Plug>NERDCommenterComment :call nerdcommenter#Comment("x", "Comment")
+nnoremap <silent> <Plug>NERDCommenterComment :call nerdcommenter#Comment("n", "Comment")
+nnoremap <Plug>PlenaryTestFile :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))
+nnoremap <Plug>PeekupPasteAfter :lua require('nvim-peekup').peekup_open('p')
+nnoremap <Plug>PeekupPasteBefore :lua require('nvim-peekup').peekup_open('P')
+nnoremap <Plug>PeekupOpen :lua require('nvim-peekup').peekup_open()
+snoremap <expr> <BS> ("\<BS>" . (getcurpos()[2] == col('$') - 1 ? 'a' : 'i'))
+onoremap <silent> <Plug>(fzf-maps-o) :call fzf#vim#maps('o', 0)
+xnoremap <silent> <Plug>(fzf-maps-x) :call fzf#vim#maps('x', 0)
+nnoremap <silent> <Plug>(fzf-maps-n) :call fzf#vim#maps('n', 0)
+tnoremap <silent> <Plug>(fzf-normal) 
+tnoremap <silent> <Plug>(fzf-insert) i
+nnoremap <silent> <Plug>(fzf-normal) <Nop>
+nnoremap <silent> <Plug>(fzf-insert) i
+nmap <M-l> $
+nmap <M-h> ^
+map <F2> :w
+map <F1> :so $MYVIMRC
+noremap <silent> <F7> :AsyncTask file-run
+noremap <silent> <F6> :AsyncTask file-build
+vnoremap <M-k> :m '<-2gv=gv
+vnoremap <M-j> :m '>+1gv=gv
+cnoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550953)
+inoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550952)
+cnoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550957)
+inoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550956)
+cnoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550965)
+inoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550964)
+inoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550966)
+cnoremap <silent> 	 <Cmd>call v:lua.cmp.utils.keymap.set_map(1550969)
+inoremap <silent> <NL> <Cmd>call v:lua.cmp.utils.keymap.set_map(1550954)
+inoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550961)
+cnoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550959)
+inoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550958)
+cnoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550951)
+inoremap <silent>  <Cmd>call v:lua.cmp.utils.keymap.set_map(1550950)
+inoremap <silent> Þ <Nop>
+inoremap <silent>  <Cmd>lua require("which-key").show("\18", {mode = "i", auto = true})
+cnoremap <silent> Þ <Nop>
+cnoremap <silent>  <Cmd>lua require("which-key").show("\18", {mode = "c", auto = true})
+inoremap <silent> Þ <Nop>
+inoremap <silent>  <Cmd>lua require("which-key").show("\19", {mode = "i", auto = true})
+inoremap " ""O
+inoremap "  "  "<Left><Left>
+inoremap " ""<Left>
+inoremap ` ``O
+inoremap `  `  `<Left><Left>
+inoremap ` ``<Left>
+inoremap ' ''O
+inoremap '  '  '<Left><Left>
+inoremap ' ''<Left>
+inoremap { {}O
+inoremap {  {  }<Left><Left>
+inoremap { {}<Left>
+inoremap [ []O
+inoremap [  [  ]<Left><Left>
+inoremap [ []<Left>
+inoremap ( ()O
+inoremap (  (  )<Left><Left>
+inoremap ( ()<Left>
+inoremap  u
+inoremap  u
+inoremap <silent> iÞ <Nop>
+inoremap <silent> i <Cmd>lua require("which-key").show("i", {mode = "i", auto = true})
+inoremap ii 
+inoremap jk 
+inoremap kj 
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set backup
+set backupdir=D:\\VimTemp
+set clipboard=unnamedplus
+set completeopt=menu,menuone,noselect
+set expandtab
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
+set helplang=en
+set ignorecase
+set mouse=a
+set runtimepath=
+set runtimepath+=~\\AppData\\Local\\nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\impatient.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\neovim-gui-shim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-tree.lua
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-web-devicons
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\fzf
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\fzf.vim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-lspconfig
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-lsp-installer
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-lightbulb
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim_current_word
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-nvim-lsp
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-buffer
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-path
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-cmp
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-nvim-ultisnips
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\lspkind-nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-tabnine
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-notify
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\popfix
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-lsputils
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\telescope.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\telescope-fzf-native.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-vsnip
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-vsnip-integ
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-vsnip
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\friendly-snippets
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\lsp_signature.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-lint
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\indent-blankline.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vista.vim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\uwu.vim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\roshnivim-cs
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\dashboard-nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-snippets
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\auto-pairs
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-fugitive
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-rhubarb
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\gitsigns.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-colorizer.lua
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-peekup
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\wilder.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\AutoSave.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\plenary.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\todo-comments.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\neovim-auto-autoread
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\glow.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\mkdnflow.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\neoscroll.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-treesitter
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-ts-autotag
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\which-key.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-quickui
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-treesitter-context
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\asyncrun.vim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\asynctasks.vim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\lualine.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-ts-rainbow
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-fzf
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cheatsheet.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\popup.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-hlslens
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\tabout.nvim
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-autopairs
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nerdcommenter
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-easy-align
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-easymotion
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\surround.nvim
+set runtimepath+=~\\AppData\\Local\\nvim-data\\site
+set runtimepath+=C:\\tools\\neovim\\Neovim\\share\\nvim\\runtime
+set runtimepath+=C:\\tools\\neovim\\Neovim\\share\\nvim\\runtime\\pack\\dist\\opt\\matchit
+set runtimepath+=C:\\tools\\neovim\\Neovim\\lib\\nvim
+set runtimepath+=~\\AppData\\Local\\nvim-data\\site\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-nvim-lsp\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-buffer\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-path\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-nvim-ultisnips\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-tabnine\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\vim-vsnip-integ\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\cmp-vsnip\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\plugged\\nvim-treesitter\\after
+set runtimepath+=~\\AppData\\Local\\nvim\\after
+set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize,options,resize,winpos,terminal
+set shiftwidth=4
+set shortmess=filnxtToOFI
+set showmatch
+set smartcase
+set smartindent
+set softtabstop=4
+set statusline=%{%v:lua.require'lualine'.statusline()%}
+set noswapfile
+set tabstop=4
+set termguicolors
+set wildcharm=<Tab>
+set wildmode=longest,list
+set window=47
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+let v:this_session=expand("<sfile>:p")
+silent only
+silent tabonly
+cd ~/GitHub/CS23-Nate
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+argglobal
+%argdel
+set lines=48 columns=211
+set stal=2
+tabnew
+tabrewind
+edit cruzlab14.cpp
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> <M-p> AutoPairsToggle()
+inoremap <buffer> <silent> <M-b> =AutoPairsBackInsert()
+inoremap <buffer> <silent> <M-e> =AutoPairsFastWrap()
+inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+inoremap <buffer> <silent> <M-'> =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> <M-"> =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> <M-}> =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> <M-{> =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
+inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
+nnoremap <buffer> ;hR <Cmd>lua require"gitsigns".reset_buffer()
+vnoremap <buffer> ;hr <Cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})
+nnoremap <buffer> ;hp <Cmd>lua require"gitsigns".preview_hunk()
+nnoremap <buffer> ;hr <Cmd>lua require"gitsigns".reset_hunk()
+nnoremap <buffer> ;hb <Cmd>lua require"gitsigns".blame_line(true)
+nnoremap <buffer> ;hu <Cmd>lua require"gitsigns".undo_stage_hunk()
+nnoremap <buffer> ;hS <Cmd>lua require"gitsigns".stage_buffer()
+vnoremap <buffer> ;hs <Cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})
+nnoremap <buffer> ;hU <Cmd>lua require"gitsigns".reset_buffer_index()
+nnoremap <buffer> ;hs <Cmd>lua require"gitsigns".stage_hunk()
+nnoremap <buffer> <expr> [c &diff ? '[c' : '<Cmd>lua require"gitsigns.actions".prev_hunk()'
+nnoremap <buffer> <expr> ]c &diff ? ']c' : '<Cmd>lua require"gitsigns.actions".next_hunk()'
+onoremap <buffer> ih :lua require"gitsigns.actions".select_hunk()
+xnoremap <buffer> ih :lua require"gitsigns.actions".select_hunk()
+noremap <buffer> <silent> <M-n> :call AutoPairsJump()
+noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
+inoremap <buffer> <silent>  =AutoPairsDelete()
+inoremap <buffer> <silent>   =AutoPairsSpace()
+inoremap <buffer> <silent> " =AutoPairsInsert('"')
+inoremap <buffer> <silent> ' =AutoPairsInsert('''')
+inoremap <buffer> <silent> ( =AutoPairsInsert('(')
+inoremap <buffer> <silent> ) =AutoPairsInsert(')')
+inoremap <buffer> <silent> [ =AutoPairsInsert('[')
+inoremap <buffer> <silent> ] =AutoPairsInsert(']')
+inoremap <buffer> <silent> ` =AutoPairsInsert('`')
+inoremap <buffer> <silent> { =AutoPairsInsert('{')
+inoremap <buffer> <silent> } =AutoPairsInsert('}')
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=80
+setlocal colorcolumn=80
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal completeslash=
+setlocal nocopyindent
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal cursorlineopt=both
+setlocal define=^\\s*#\\s*define
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'cpp'
+setlocal filetype=cpp
+endif
+setlocal fillchars=
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+set foldnestmax=1
+setlocal foldnestmax=1
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=jcroql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=^\\s*#\\s*include
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal listchars=
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=ccomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal scrollback=-1
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=4
+setlocal showbreak=
+setlocal sidescrolloff=-1
+set signcolumn=yes
+setlocal signcolumn=yes
+setlocal smartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != ''
+setlocal syntax=
+endif
+setlocal tagfunc=
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal thesaurusfunc=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal winblend=0
+setlocal winhighlight=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 3 - ((2 * winheight(0) + 22) / 45)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 3
+normal! 0
+lcd ~/GitHub/CS23-Nate
+tabnext
+edit ~/AppData/Local/nvim/init.vim
+argglobal
+balt ~/GitHub/CS23-Nate/cruzlab14.cpp
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> <M-p> AutoPairsToggle()
+inoremap <buffer> <silent> <M-b> =AutoPairsBackInsert()
+inoremap <buffer> <silent> <M-e> =AutoPairsFastWrap()
+inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+inoremap <buffer> <silent> <M-'> =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> <M-"> =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> <M-}> =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> <M-{> =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
+inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*end\(f\%[unction]\|def\)\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*end\(f\%[unction]\|def\)\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*\(fu\%[nction]\|def\)\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*\(fu\%[nction]\|def\)\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*end\(f\%[unction]\|def\)\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*end\(f\%[unction]\|def\)\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*\(fu\%[nction]\|def\)\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*\(fu\%[nction]\|def\)\>', "W")
+noremap <buffer> <silent> <M-n> :call AutoPairsJump()
+noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
+inoremap <buffer> <silent>  =AutoPairsDelete()
+inoremap <buffer> <silent>   =AutoPairsSpace()
+inoremap <buffer> <silent> " =AutoPairsInsert('"')
+inoremap <buffer> <silent> ' =AutoPairsInsert('''')
+inoremap <buffer> <silent> ( =AutoPairsInsert('(')
+inoremap <buffer> <silent> ) =AutoPairsInsert(')')
+inoremap <buffer> <silent> [ =AutoPairsInsert('[')
+inoremap <buffer> <silent> ] =AutoPairsInsert(']')
+inoremap <buffer> <silent> ` =AutoPairsInsert('`')
+inoremap <buffer> <silent> { =AutoPairsInsert('{')
+inoremap <buffer> <silent> } =AutoPairsInsert('}')
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=80
+setlocal colorcolumn=80
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
+setlocal complete=.,w,b,u,t
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal completeslash=
+setlocal nocopyindent
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'vim'
+setlocal filetype=vim
+endif
+setlocal fillchars=
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+set foldnestmax=1
+setlocal foldnestmax=1
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=jcroql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},0),0],:,!^F,o,O,e,=end,=},=else,=cat,=finall,=END,0\\,0=\"\\\ 
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,#
+setlocal keywordprg=:help
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal listchars=
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal scrollback=-1
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=4
+setlocal showbreak=
+setlocal sidescrolloff=-1
+set signcolumn=yes
+setlocal signcolumn=yes
+setlocal smartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'vim'
+setlocal syntax=vim
+endif
+setlocal tagfunc=
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal thesaurusfunc=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal winblend=0
+setlocal winhighlight=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1231 - ((20 * winheight(0) + 22) / 45)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1231
+normal! 066|
+lcd ~/AppData/Local/nvim
+tabnext 1
+set stal=1
+badd +3 ~/GitHub/CS23-Nate/cruzlab14.cpp
+badd +1233 ~/AppData/Local/nvim/init.vim
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToOFI
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if filereadable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &g:so = s:so_save | let &g:siso = s:siso_save
+set hlsearch
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

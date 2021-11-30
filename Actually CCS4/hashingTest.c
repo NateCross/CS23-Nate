@@ -4,6 +4,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
+#include "lib/stringInput.h"
 
 #define KEY_SIZE 8
 #define HASH_SIZE 10
@@ -35,9 +36,15 @@ int convertStringOption3(char chrKey[]) {
     int length = strlen(chrKey);
     int key = 0;
 
-    for (int i = 0; i < length; i++)
-        key = key + (chrKey[length - i - 1] * pow(K, i));
-
+    for (int i = 0; i < length; i++) {
+        // This block handles if the char is already a number
+        // Because according to the ppt., numbers are not supposed to be
+        // converted using its ASCII values
+        if (chrKey[length - i - 1] >= '0' && chrKey[length - i - 1] <= '9')
+            key = key + chrKey[length - i - 1] - '0'; 
+        else
+            key = key + (chrKey[length - i - 1] * pow(K, i));
+    }
     return key;
 }
 
@@ -94,15 +101,18 @@ PERSON inputData() {
     PERSON temp;
     printf("\tEnter ID: \n");
     fgets(temp.personId, KEY_SIZE, stdin);
+    temp.personId[strcspn(temp.personId, "\n")] = 0;
     printf("\tEnter name:\n");
     fgets(temp.personName, NAME_SIZE, stdin);
+    temp.personName[strcspn(temp.personName, "\n")] = 0;
     return temp;
 }
 
 void inputSearchKey(char chrKey[]) {
     printf("\tEnter search key: \n");
-    fgets(chrKey, KEY_SIZE - 1, stdin);
-    chrKey[strcspn(chrKey, "\n")] = 0;
+    // fgets(chrKey, KEY_SIZE - 1, stdin);
+    // chrKey[strcspn(chrKey, "\n")] = 0;
+    stringInput(chrKey, KEY_SIZE);
     // printf("strlen: %d\n", strlen(chrKey));
     // gets(chrKey);
     return;

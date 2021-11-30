@@ -3,8 +3,9 @@
 #include <stdbool.h>
 #include <math.h>
 
-#define S 5
-#define K 7
+#define S 5 // This is the size of the string
+#define K 7 // This is the constant used for converting string to number
+            // It must be a prime number greater than S to reduce collision
 #define LH 10
 #define INCR 7
 #define FLUSH while (getchar() != '\n')
@@ -128,6 +129,7 @@ int convertString_Option3(char chrKey[])
 	
 	L = strlen(chrKey);
 	
+    // K is some prime number larger than the amount of characters
 	for(i = 0;i < L; i++)
 	{
 		key = key + (chrKey[L - i - 1] * pow(K,i));

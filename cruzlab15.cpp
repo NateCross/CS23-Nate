@@ -8,10 +8,10 @@
 using namespace std;
 
 // Abstract base class
-class Shape {
+class shape {
     public:
-        Shape();
-        Shape(const float&, const float&);
+        shape();
+        shape(const float&, const float&);
 
         // Defining as pure virtual functions
         virtual void calculateArea()   = 0;
@@ -23,7 +23,7 @@ class Shape {
         float _volume;
 };
 
-class point : public Shape {
+class point : public shape {
     public:
         point();
         point(const float&, const float&);
@@ -59,21 +59,21 @@ class Cylinder : public Circle {
         float _height;
 };
 
-Shape::Shape() {
+shape::shape() {
     _area = _volume = 0;
 }
 
-Shape::Shape(const float& a, const float& v) {
+shape::shape(const float& a, const float& v) {
     _area   = a;
     _volume = v;
 }
 
 // Reusing Shape's constructor to expedite
-point::point() : Shape() {
+point::point() : shape() {
     _xPos = _yPos = 0;
 }
 
-point::point(const float& x, const float& y) : Shape() {
+point::point(const float& x, const float& y) : shape() {
     _xPos = x;
     _yPos = y;
 }
@@ -82,7 +82,6 @@ point::point(const float& x, const float& y) : Shape() {
 // because points cannot have either an area nor a volume 
 // But in order to preserve the functionality of the abstract base class 
 // these classes have to be defined anyways as such to make it compile
-// Each of these functions will be defined later anyways due to inheritance
 void point::calculateArea() {}
 void point::calculateVolume() {}
 
@@ -147,9 +146,9 @@ int main() {
     point    pnt;
     Circle   circ;
     Cylinder cyl;
-    Shape    *shapePoint = &pnt;
-    Shape    *shapeCircle = &circ;
-    Shape    *shapeCylinder = &cyl;
+    shape    *shapePoint = &pnt;
+    shape    *shapeCircle = &circ;
+    shape    *shapeCylinder = &cyl;
 
     char  choice;
     float inputX;

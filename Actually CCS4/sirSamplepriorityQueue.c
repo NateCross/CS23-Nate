@@ -67,23 +67,25 @@ void insertTask(TASK task, PQUEUE *H)
 {
 	unsigned int i;
 	
-	H->hSize = H->hSize + 1;
-	i = H->hSize;
-	while(H->test[i/2].duration > task.duration)
+	H->hSize = H->hSize + 1;    // Step 1. Increment array size by 1. This is because the i will be used quite a bit later
+	i = H->hSize;               // Step 2. Make i equal to size. This i will be the marker for percolating the array upwards
+	while(H->test[i/2].duration > task.duration) // Because this is a min heap, it checks if the value of the parent is greater than the child
 	{
-		H->test[i] = H->test[i/2];
-		i /= 2;
+		H->test[i] = H->test[i/2]; // If it is greater, the parent goes to the child's position
+		i /= 2; // i then moves upwards to the parent's position.
+        // No need to swap between parent and child because the data will be stored if it is already at the right spot
+        // That is, the parent is no longer greater than the child.
 	}
 	H->test[i] = task;
 }
 
 TASK deleteTask(PQUEUE *H)
 {
-	TASK min = H->test[1];
-	H->test[1] = H->test[H->hSize];
-	H->hSize = H->hSize - 1;
-	*H = heapify(1, *H);
-	return min;
+	TASK min = H->test[1]; // Saves the head of the array as a temp, for returning
+	H->test[1] = H->test[H->hSize]; // Moves the last node to the head
+	H->hSize = H->hSize - 1; // Decrement size by 1
+	*H = heapify(1, *H); // Calls heapify function on the head, which was just changed
+	return min; // Return that temp we saved earlier
 }
 
 PQUEUE heapify(int i, PQUEUE H)
@@ -93,19 +95,19 @@ PQUEUE heapify(int i, PQUEUE H)
 	l = 2 * i;
 	r = 2 * i + 1;
 	
-	if((l <= H.hSize) && (H.test[l].duration < H.test[i].duration))
+	if((l <= H.hSize) && (H.test[l].duration < H.test[i].duration)) // If left child exists and is smaller than parent, mark l as smaller
 		smaller = l;
 	else
-		smaller = i;
+		smaller = i; // Otherwise, it's the parent that's smaller
 	
-	if ((r <= H.hSize) && (H.test[r].duration < H.test[smaller].duration))
+	if ((r <= H.hSize) && (H.test[r].duration < H.test[smaller].duration)) // Check if right child exists and is smaller than the value from before
 		smaller = r;
-	if(smaller != i)
+	if(smaller != i) // If the smaller value is one of the child nodes, swap that one to the parent node
 	{
 		temp = H.test[i]; // start of swap
 		H.test[i] = H.test[smaller];
 		H.test[smaller] = temp; // end of swap
-		H = heapify(smaller, H);
+		H = heapify(smaller, H); // Call heapify again on the position of the child node that was swapped
 	}
 	return H;
 }

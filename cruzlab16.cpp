@@ -1,7 +1,6 @@
 // Nathan Angelo B. Cruz
 
 #include <iostream>
-#include <conio.h>
 using namespace std;
 
 class Shape {
@@ -26,17 +25,9 @@ class TwoDimensional : public Shape {
 class ThreeDimensional : public Shape {
     public:
         virtual void display() const;
-        virtual void calculateArea() = 0;
+        virtual void calculateArea()   = 0;
         virtual void calculateVolume() = 0;
 };
-
-void TwoDimensional::display() const {
-    cout << "Shape is 2D" << endl;
-}
-
-void ThreeDimensional::display() const {
-    cout << "Shape is 3D" << endl;
-}
 
 class Square : public TwoDimensional {
     public:
@@ -47,30 +38,7 @@ class Square : public TwoDimensional {
 
     protected:
         float _length;
-        float _width;
 };
-
-Square::Square() {
-    _length = _width = _area = _volume = 0;
-}
-
-Square::Square(const float& l) {
-    _length = l;
-    _width  = l;
-    calculateArea();
-    _volume = 0;
-}
-
-void Square::display() const {
-    TwoDimensional::display();
-    cout << "Length: " << _length << endl
-         << "Width: "  << _width  << endl
-         << "Area: "   << _area   << endl;
-}
-
-void Square::calculateArea() {
-    _area = _length * _length;
-}
 
 class Cube : public ThreeDimensional {
     public:
@@ -82,16 +50,42 @@ class Cube : public ThreeDimensional {
 
     protected:
         float _length;
-        float _width;
-        float _height;
 };
 
+void TwoDimensional::display() const {
+    cout << "Shape is 2D" << endl;
+}
+
+void ThreeDimensional::display() const {
+    cout << "Shape is 3D" << endl;
+}
+
+Square::Square() {
+    _length = _area = _volume = 0;
+}
+
+Square::Square(const float& l) {
+    _length = l;
+    calculateArea();
+    _volume = 0;
+}
+
+void Square::display() const {
+    TwoDimensional::display();
+    cout << "Length: " << _length << endl
+         << "Area: "   << _area   << endl;
+}
+
+void Square::calculateArea() {
+    _area = _length * _length;
+}
+
 Cube::Cube() {
-    _length = _width = _height = _area = _volume = 0;
+    _length = _area = _volume = 0;
 }
 
 Cube::Cube(const float& l) {
-    _length = _width = _height = l;
+    _length = l;
     calculateArea();
     calculateVolume();
 }
@@ -99,8 +93,6 @@ Cube::Cube(const float& l) {
 void Cube::display() const {
     ThreeDimensional::display();
     cout << "Length: "       << _length << endl
-         << "Width: "        << _width  << endl
-         << "Height: "       << _height << endl
          << "Surface Area: " << _area   << endl
          << "Volume: "       << _volume << endl;
 }
@@ -114,21 +106,10 @@ void Cube::calculateVolume() {
 }
 
 int main() {
-    // Shape *shp;
-
-    // Square squ(1.1);
-    // shp = &squ;
-    // shp->display();
-
-    // cout << endl;
-
-    // Cube cb(2.2);
-    // shp = &cb;
-    // shp->display();
     Shape *shape;
     Square square;
     Cube cube;
-    shape = &square;
+    shape = &square;    // Must initialize or you cannot do shape->display()
 
     char choice;
     float inputL;
@@ -139,9 +120,9 @@ int main() {
         shape->display();
         cout << endl << endl;
 
-        cout << "1. Set Square" << endl;
-        cout << "2. Set Cube" << endl;
-        cout << "0. Exit" << endl;
+        cout << "1. Set Square" << endl
+             << "2. Set Cube"   << endl
+             << "0. Exit"       << endl;
 
         cout << "Enter choice: ";
         cin >> choice;
@@ -166,13 +147,13 @@ int main() {
             default:
                 cout << endl << "Incorrect input." << endl;
                 cout << "Press any key to try again." << endl;
-                _getch();
+                getchar();
                 break;
         }
 
     } while (choice != '0');
 
     cout << "Press any key to end." << endl;
-    _getch();
+    getchar();
     return 0;
 }
